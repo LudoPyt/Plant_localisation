@@ -1,15 +1,15 @@
-var btn = document.getElementById("btn-loc");
-var long = document.getElementById("longitude");
-var lat = document.getElementById("latitude");
-var alertLoc = document.getElementById("alert-localisation");
+window.onload = function() {
+  var btn = document.getElementById("btn-loc");
+  var long = document.getElementById("longitude");
+  var lat = document.getElementById("latitude");
+  var alertLoc = document.getElementById("alert-localisation");
 
-var x = document.getElementById("demo");
-
-btn.addEventListener("click", getLocation);
+  btn.addEventListener("click", getLocation);
+}
 
 function getLocation() {
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition, showError);
+    navigator.geolocation.getCurrentPosition(showPosition);
     // navigator.geolocation.watchPosition(showPosition, showError);
   } else {
     alertLoc.innerHTML = "Geolocation is not supported by this browser.";
@@ -17,6 +17,7 @@ function getLocation() {
 }
 
 function showPosition(position) {
+  console.log('position');
   lat.value = position.coords.latitude;
   long.value = position.coords.longitude;
   lat.disabled = true;
@@ -24,6 +25,7 @@ function showPosition(position) {
 }
 
 function showError(error) {
+  console.log('error');
   switch(error.code) {
     case error.PERMISSION_DENIED:
       alertLoc.innerHTML = "User denied the request for Geolocation."

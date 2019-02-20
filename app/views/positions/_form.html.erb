@@ -12,10 +12,12 @@
   <% end %>
 
   <%= simple_form_for @position do |f| %>
-    <%= f.input :latitude, label: 'Latitude'%>
-    <%= f.input :longitude, label: 'Longitude' %>
+    <%= f.input :latitude, label: 'Latitude', id: "latitude"%>
+    <%= f.input :longitude, label: 'Longitude', id: "longitude" %>
+    <div id="alert-localisation"></div>
     <%= f.collection_select(:plant_id, Plant.all, :id, :name) %>
     <%= f.button :submit %>
   <% end %>
 
+    <button id="btn-loc">Localiser position</button>
 <% end %>
