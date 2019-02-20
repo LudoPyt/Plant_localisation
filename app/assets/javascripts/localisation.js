@@ -19,6 +19,8 @@ function getLocation() {
 function showPosition(position) {
   lat.value = position.coords.latitude;
   long.value = position.coords.longitude;
+  lat.disabled = true;
+  long.disabled = true;
 }
 
 function showError(error) {
