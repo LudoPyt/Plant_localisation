@@ -11,22 +11,11 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :latitude %>
-    <%= form.text_field :latitude %>
-  </div>
+  <%= simple_form_for @position do |f| %>
+    <%= f.input :latitude, label: 'Latitude'%>
+    <%= f.input :longitude, label: 'Longitude' %>
+    <%= f.collection_select(:plant_id, Plant.all, :id, :name) %>
+    <%= f.button :submit %>
+  <% end %>
 
-  <div class="field">
-    <%= form.label :longitude %>
-    <%= form.text_field :longitude %>
-  </div>
-
-  <div class="field">
-    <%= form.label :plant_name_id %>
-    <%= form.text_field :plant_name_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

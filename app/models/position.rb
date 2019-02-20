@@ -1,3 +1,3 @@
 class Position < ApplicationRecord
-  belongs_to :plant_name
+  belongs_to :plant
 end

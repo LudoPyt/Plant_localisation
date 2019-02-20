@@ -15,19 +15,19 @@ ActiveRecord::Schema.define(version: 2019_02_20_154737) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "plant_names", force: :cascade do |t|
+  create_table "plants", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "positions", force: :cascade do |t|
-    t.string "latitude"
-    t.string "longitude"
-    t.bigint "plant_name_id"
+    t.float "latitude"
+    t.float "longitude"
+    t.bigint "plant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["plant_name_id"], name: "index_positions_on_plant_name_id"
+    t.index ["plant_id"], name: "index_positions_on_plant_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -42,5 +42,5 @@ ActiveRecord::Schema.define(version: 2019_02_20_154737) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "positions", "plant_names"
+  add_foreign_key "positions", "plants"
 end
