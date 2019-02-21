@@ -1,3 +1,8 @@
+<script>
+  $(document).ready(function() {
+    $('#position_plant_id').select2();
+  });
+</script>
 <%= form_with(model: position, local: true) do |form| %>
   <% if position.errors.any? %>
     <div id="error_explanation">
