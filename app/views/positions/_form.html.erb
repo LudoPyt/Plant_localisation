@@ -1,3 +1,8 @@
+<script>
+  $(document).ready(function() {
+    $('#position_plant_id').select2();
+  });
+</script>
 <%= form_with(model: position, local: true) do |form| %>
   <% if position.errors.any? %>
     <div id="error_explanation">
@@ -26,7 +31,7 @@
     <%= f.input :longitude, placeholder: "Longitude", :input_html => {
         :id => "longitude"
       } %>
-    <%= f.button :submit, class:"btn btn-success", disabled: true, id: "valider" %>
+    <%= f.button :submit, value: "Enregistrer la position", class:"btn btn-success", disabled: true, id: "valider" %>
   <% end %>
     <div id="alert-localisation"></div>
     <button class="btn btn-outline-success" id="btn-loc">Localiser position</button>

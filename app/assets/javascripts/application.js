@@ -19,6 +19,4 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).ready(function() {
-  $('#position_plant_id').select2();
-});
+
