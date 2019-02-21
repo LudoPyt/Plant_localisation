@@ -12,13 +12,20 @@
   <% end %>
 
   <%= simple_form_for @position do |f| %>
+
+    <div class="plante">
+      <div>
+        Quelle plante voulez-vous localiser ?
+      </div>
+      <%= f.collection_select(:plant_id, Plant.all, :id, :name) %>
+    </div>
+
     <%= f.input :latitude, placeholder: "Latitude", :input_html => {
         :id => "latitude"
       } %>
     <%= f.input :longitude, placeholder: "Longitude", :input_html => {
         :id => "longitude"
       } %>
-    <%= f.collection_select(:plant_id, Plant.all, :id, :name) %>
     <%= f.button :submit, class:"btn btn-success", disabled: true, id: "valider" %>
   <% end %>
     <div id="alert-localisation"></div>
