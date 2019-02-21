@@ -5,16 +5,14 @@ window.onload = function() {
   var alertLoc = document.getElementById("alert-localisation");
 
   btn.addEventListener("click", getLocation);
+}
 
-  console.log(document.getElementById("latitude"));
-
-  function getLocation() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPosition);
-      // navigator.geolocation.watchPosition(showPosition, showError);
-    } else {
-      alertLoc.innerHTML = "Geolocation is not supported by this browser.";
-    }
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+    // navigator.geolocation.watchPosition(showPosition, showError);
+  } else {
+    alertLoc.innerHTML = "Geolocation is not supported by this browser.";
   }
 
   function showPosition(position) {
