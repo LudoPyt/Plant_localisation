@@ -11,8 +11,9 @@
     </div>
   <% end %>
 
-  <%= simple_form_for @plant  do |f| %>
-    <%= f.input :name, as: :select2, collection: Plant.all %>
+  <%= simple_form_for @plant do |f| %>
+    
+    <%= f.input :name, label: 'Nom de la plante' %>
     <%= f.button :submit %>
   <% end %>
 
