@@ -19,6 +19,9 @@ window.onload = function() {
       console.log('position');
       lat.value = position.coords.latitude;
       long.value = position.coords.longitude;
+
+      document.getElementById("valider").disabled = false;
+
     }
 
     function showError(error) {

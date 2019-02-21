@@ -1,6 +1,20 @@
-input {
-  height: 80px;
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+input, .btn {
+  height: 50px;
   display: block;
   width: 100%;
-  font-size: 30px;
+  font-size: 20px;
+  margin: 20px auto;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
 }
