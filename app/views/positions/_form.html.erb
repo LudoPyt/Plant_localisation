@@ -17,7 +17,7 @@
       <div>
         Quelle plante voulez-vous localiser ?
       </div>
-      <%= f.collection_select(:plant_id, Plant.all, :id, :name) %>
+      <%= f.collection_select(:plant_id, Plant.all, :id, :name, :prompt => "Choisissez une variété") %>
     </div>
 
     <%= f.input :latitude, placeholder: "Latitude", :input_html => {
