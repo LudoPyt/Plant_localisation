@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.3'
 
+#select2
+gem 'select2_simple_form', github: 'lndl/select2_simple_form', tag: '0.7.3'
 #boostrap
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
