@@ -18,7 +18,7 @@
     <%= f.input :longitude, label: 'Longitude', :input_html => {
         :id => "longitude"
       } %>
-    <%= f.collection_select(:plant_id, Plant.all, :id, :name) %>
+    <%= f.collection_select(:plant_id, Plant.all, :id, :name ) %>
     <%= f.button :submit, class:"btn btn-success" %>
   <% end %>
     <div id="alert-localisation"></div>
