@@ -13,6 +13,13 @@ input, .btn {
   margin: 20px auto;
 }
 
+#btn-loc {
+  &:hover {
+    color: inherit;
+    background-color: inherit;
+  }
+}
+
 h1 {
   font-size: 40px;
   font-weight: bold;
