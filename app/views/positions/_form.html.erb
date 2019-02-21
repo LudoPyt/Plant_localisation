@@ -19,8 +19,8 @@
         :id => "longitude"
       } %>
     <%= f.collection_select(:plant_id, Plant.all, :id, :name) %>
-    <%= f.button :submit %>
+    <%= f.button :submit, class:"btn btn-success" %>
   <% end %>
     <div id="alert-localisation"></div>
-    <button id="btn-loc">Localiser position</button>
+    <button class="btn btn-outline-success" id="btn-loc">Localiser position</button>
 <% end %>

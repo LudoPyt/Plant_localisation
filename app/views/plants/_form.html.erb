@@ -12,8 +12,8 @@
   <% end %>
 
   <%= simple_form_for @plant  do |f| %>
-    <%= f.input :name, as: :select2, collection: Plant.all %>
-    <%= f.button :submit %>
+    <%= f.input :name, collection: Plant.all %>
+    <%= f.button :submit, class:"btn btn-success" %>
   <% end %>
 
 <% end %>
