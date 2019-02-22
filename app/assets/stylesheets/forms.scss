@@ -11,6 +11,11 @@ input, .btn {
   width: 100%;
   font-size: 20px;
   margin: 20px auto;
+
+  &#user_remember_me {
+    width: auto;
+    height: auto;
+  }
 }
 
 #btn-loc {
