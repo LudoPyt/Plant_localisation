@@ -6,6 +6,11 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+require File.expand_path('../boot', __FILE__)
+
+require 'csv'
+require 'rails/all'
+
 module PlantLocalisation
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.

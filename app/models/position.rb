@@ -12,4 +12,15 @@
 
 class Position < ApplicationRecord
   belongs_to :plant
+
+  def self.to_csv(options = {})
+  CSV.generate(options) do |csv|
+    csv << column_names
+    all.each do |position|
+      csv << position.attributes.values_at(*column_names)
+      end
+    end
+  end
 end
+
+

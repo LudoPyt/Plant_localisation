@@ -4,4 +4,9 @@
 
   <%= render 'form', position: @position %>
 
+<p>
+    Exporter:
+    <%= link_to "CSV", positions_path(format: "csv") %>
+</p>
+
 </div>

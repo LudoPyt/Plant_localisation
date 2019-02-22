@@ -6,6 +6,12 @@ class PositionsController < ApplicationController
   # GET /positions.json
   def index
     @positions = Position.all
+
+    @positions = Position.order(:plant_id)
+    respond_to do |format|
+      format.html
+      format.csv { send_data @positions.to_csv }
+    end
   end
 
   # GET /positions/1
