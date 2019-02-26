@@ -1,0 +1,13 @@
+<h1>USERS</h1>
+
+<table>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= user.approved %></td>
+        <td><%= link_to 'Approuver', approve_user_path(user.id) %></td>
+      </tr>
+    <% end %>
+</table>
+
+<%= link_to 'home', root_path %>

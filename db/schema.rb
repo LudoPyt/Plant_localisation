@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_21_085957) do
+ActiveRecord::Schema.define(version: 2019_02_23_123718) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,16 @@ ActiveRecord::Schema.define(version: 2019_02_21_085957) do
     t.string "family"
     t.string "existingNumber"
     t.string "newNumber"
+    t.string "champ1"
+    t.string "champ2"
+    t.string "champ3"
+    t.string "champ4"
+    t.string "champ5"
+    t.string "champ6"
+    t.string "champ7"
+    t.string "champ8"
+    t.string "champ9"
+    t.string "champ10"
   end
 
   create_table "positions", force: :cascade do |t|
@@ -47,6 +57,9 @@ ActiveRecord::Schema.define(version: 2019_02_21_085957) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "approved", default: false, null: false
+    t.boolean "admin", default: false
+    t.index ["approved"], name: "index_users_on_approved"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

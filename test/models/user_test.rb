@@ -10,6 +10,8 @@
 #  remember_created_at    :datetime
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  approved               :boolean          default(FALSE), not null
+#  admin                  :boolean          default(FALSE)
 #
 
 require 'test_helper'

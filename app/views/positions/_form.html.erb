@@ -3,6 +3,14 @@
     $('#position_plant_id').select2();
   });
 </script>
+
+<%= link_to 'Voir la liste de plantes', plants_path %>
+<% if current_user.admin? %>
+  <%= link_to 'Approuver les utilisateurs', users_path %>
+<% end %>
+
+<div id="alert-localisation"></div>
+<button class="btn btn-outline-success" id="btn-loc">Localiser position</button>
 <%= form_with(model: position, local: true) do |form| %>
   <% if position.errors.any? %>
     <div id="error_explanation">
@@ -25,16 +33,15 @@
       <%= f.collection_select(:plant_id, Plant.all, :id, :name, :prompt => "Choisissez une variété") %>
     </div>
 
-    <%= f.input :latitude, placeholder: "Latitude", :input_html => {
+      <%= f.input :latitude, placeholder: "Latitude", :input_html => {
         :id => "latitude"
       } %>
-    <%= f.input :longitude, placeholder: "Longitude", :input_html => {
+      <%= f.input :longitude, placeholder: "Longitude", :input_html => {
         :id => "longitude"
       } %>
     <%= f.button :submit, value: "Enregistrer la position", class:"btn btn-success", disabled: true, id: "valider" %>
   <% end %>
-    <div id="alert-localisation"></div>
-    <button class="btn btn-outline-success" id="btn-loc">Localiser position</button>
+    
 <% end %>
 
 

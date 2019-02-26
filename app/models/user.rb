@@ -10,6 +10,8 @@
 #  remember_created_at    :datetime
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  approved               :boolean          default(FALSE), not null
+#  admin                  :boolean          default(FALSE)
 #
 
 class User < ApplicationRecord
@@ -19,4 +21,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  def active_for_authentication? 
+    super && approved? 
+  end 
+  
+  def inactive_message 
+    approved? ? super : :not_approved
+  end
 end
