@@ -1,13 +1,32 @@
 <h1>USERS</h1>
 
+<%= link_to 'Accueil', root_path %>
+
 <table>
+  <h3>Utilisateurs en attente</h3>
     <% @users.each do |user| %>
-      <tr>
-        <td><%= user.email %></td>
-        <td><%= user.approved %></td>
-        <td><%= link_to 'Approuver', approve_user_path(user.id) %></td>
-      </tr>
+      <% if user.approved = false %>
+        <tr>
+          <td><%= user.email %>/td>
+          <td><%= link_to 'Approuver', approve_user_path(user.id) %></td>
+        </tr>
+      <% end %>
+    <% end %>
+    <% if User.where(approved: false).count == 0 %>
+      <p>Aucun utilisateur est en attente dapprobation</p>
     <% end %>
 </table>
 
-<%= link_to 'home', root_path %>
+<table>
+  <h3>Utilisateurs approuvés</h3>
+    <% @users.each do |user| %>
+      <% if user.approved = true %>
+        <tr>
+          <td><%= user.email %></td>
+        </tr>
+      <% end %>
+
+    <% end %>
+</table>
+
+

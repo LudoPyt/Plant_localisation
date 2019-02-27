@@ -4,9 +4,9 @@
   });
 </script>
 
-<%= link_to 'Voir la liste de plantes', plants_path %>
+<%= link_to 'Liste de plantes', plants_path %>
 <% if current_user.admin? %>
-  <%= link_to 'Approuver les utilisateurs', users_path %>
+  <%= link_to 'Liste des utilisateurs', users_path %>
 <% end %>
 
 <div id="alert-localisation"></div>
