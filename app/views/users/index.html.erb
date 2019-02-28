@@ -10,7 +10,7 @@
 
       <h3>En attente :</h3>
         <% @users.each do |user| %>
-          <% if user.approved = false %>
+          <% if user.approved == false %>
               <div><%= user.email %><%= link_to 'Approuver', approve_user_path(user.id) %></div>
           <% end %>
         <% end %>
@@ -20,7 +20,7 @@
 
     <h3>Approuvés :</h3>
       <% @users.each do |user| %>
-        <% if user.approved = true %>
+        <% if user.approved == true %>
             <div><%= user.email %></div>
         <% end %>
       <% end %>
