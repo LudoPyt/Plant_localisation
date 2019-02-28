@@ -6,6 +6,6 @@ Rails.application.routes.draw do
 
   root 'positions#new'
 
-  get '/users' => 'users#index'
+  get '/users/list' => 'users#index'
   get '/users/:id/approve' => 'users#approve', as: :approve_user
 end
