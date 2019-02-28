@@ -1,30 +1,29 @@
-<h1>USERS</h1>
+<nav class="navbar navbar-light bg-light">
+  <%= link_to 'Accueil', root_path, class: "navbar-brand" %>
+</nav>
 
-<%= link_to 'Accueil', root_path %>
+<div class="container-fluid">
 
-<table>
-  <h3>Utilisateurs en attente</h3>
-    <% @users.each do |user| %>
-      <% if user.approved = false %>
-        <tr>
-          <td><%= user.email %>/td>
-          <td><%= link_to 'Approuver', approve_user_path(user.id) %></td>
-        </tr>
+  <h1>UTILISATEURS</h1>
+
+  <div class="text-center">
+
+      <h3>En attente :</h3>
+        <% @users.each do |user| %>
+          <% if user.approved = false %>
+              <div><%= user.email %><%= link_to 'Approuver', approve_user_path(user.id) %></div>
+          <% end %>
+        <% end %>
+        <% if User.where(approved: false).count == 0 %>
+          <div>Aucun utilisateur est en attente d'approbation</div>
+        <% end %>
+
+    <h3>Approuvés :</h3>
+      <% @users.each do |user| %>
+        <% if user.approved = true %>
+            <div><%= user.email %></div>
+        <% end %>
       <% end %>
-    <% end %>
-    <% if User.where(approved: false).count == 0 %>
-      <p>Aucun utilisateur est en attente dapprobation</p>
-    <% end %>
-</table>
+  </div>
 
-<table>
-  <h3>Utilisateurs approuvés</h3>
-    <% @users.each do |user| %>
-      <% if user.approved = true %>
-        <tr>
-          <td><%= user.email %></td>
-        </tr>
-      <% end %>
-
-    <% end %>
-</table>
+</div>

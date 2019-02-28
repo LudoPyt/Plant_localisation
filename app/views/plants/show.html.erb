@@ -1,60 +1,58 @@
-<p id="notice"><%= notice %></p>
+<nav class="navbar navbar-light bg-light">
+  <%= link_to 'Retour', plants_path, class:"navbar-brand" %>
+</nav>
 
-<p>
-  <strong>Name:</strong>
-  <%= @plant.name %>
-</p>
+<div class="container-fluid">
 
-<p>
-  <strong>Champ1:</strong>
-  <%= @plant.champ1 %>
-</p>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Champ2:</strong>
-  <%= @plant.champ2 %>
-</p>
+  <h1><%= @plant.name %></h1>
 
-<p>
-  <strong>Champ3:</strong>
-  <%= @plant.champ3 %>
-</p>
+  <%= link_to 'Editer', edit_plant_path(@plant), class: "btn btn-secondary" %>
 
-<p>
-  <strong>Champ4:</strong>
-  <%= @plant.champ4 %>
-</p>
+  <table class="table">
+    <tbody>
+      <tr>
+        <th scope="row">Champ1:</th>
+        <td><%= @plant.champ1 %></td>
+      </tr>
+      <tr>
+        <th scope="row">Champ2:</th>
+        <td><%= @plant.champ2 %></td>
+      </tr>
+      <tr>
+        <th scope="row">Champ3:</th>
+        <td><%= @plant.champ3 %></td>
+      </tr>
+      <tr>
+        <th scope="row">Champ4:</th>
+        <td><%= @plant.champ4 %></td>
+      </tr>
+      <tr>
+        <th scope="row">Champ5:</th>
+        <td><%= @plant.champ5 %></td>
+      </tr>
+      <tr>
+        <th scope="row">Champ6:</th>
+        <td><%= @plant.champ6 %></td>
+      </tr>
+      <tr>
+        <th scope="row">Champ7:</th>
+        <td><%= @plant.champ7 %></td>
+      </tr>
+      <tr>
+        <th scope="row">Champ8:</th>
+        <td><%= @plant.champ8 %></td>
+      </tr>
+      <tr>
+        <th scope="row">Champ9:</th>
+        <td><%= @plant.champ9 %></td>
+      </tr>
+      <tr>
+        <th scope="row">Champ10:</th>
+        <td><%= @plant.champ10 %></td>
+      </tr>
 
-<p>
-  <strong>Champ5:</strong>
-  <%= @plant.champ5 %>
-</p>
-
-<p>
-  <strong>Champ6:</strong>
-  <%= @plant.champ6 %>
-</p>
-
-<p>
-  <strong>Champ7:</strong>
-  <%= @plant.champ7 %>
-</p>
-
-<p>
-  <strong>Champ8:</strong>
-  <%= @plant.champ8 %>
-</p>
-
-<p>
-  <strong>Champ9:</strong>
-  <%= @plant.champ9 %>
-</p>
-
-<p>
-  <strong>Champ10:</strong>
-  <%= @plant.champ10 %>
-</p>
-
-<%= link_to 'Retour', plants_path %> |
-<%= link_to 'Editer', edit_plant_path(@plant) %>
-
+    </tbody>
+  </table>
+</div>

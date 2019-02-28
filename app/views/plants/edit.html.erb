@@ -1,6 +1,14 @@
-<h1>Editing Plant</h1>
 
-<%= render 'form', plant: @plant %>
+<nav class="navbar navbar-light bg-light">
+  <%= link_to 'Back', plants_path, class:"navbar-brand" %>
+</nav>
 
-<%= link_to 'Show', @plant %> |
-<%= link_to 'Back', plants_path %>
+<div class="container">
+
+  <h1>Editing Plant</h1>
+
+  <%= render 'form', plant: @plant %>
+
+  <%= link_to 'Show', @plant, class:"btn btn-secondary" %>
+
+</div>

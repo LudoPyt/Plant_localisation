@@ -1,33 +1,37 @@
+<nav class="navbar navbar-light bg-light">
+  <%= link_to 'Retour', root_path, class: "navbar-brand" %>
+</nav>
+
 <p id="notice"><%= notice %></p>
 
-<h1>Plants</h1>
+<div class="container">
+  <h1>Plantes</h1>
 
-<%= link_to 'Retour', root_path %> |
-<%= link_to 'Créer une nouvelle plante', new_plant_path %>
+  <div class="text-center">
+    <%= link_to 'Créer une nouvelle plante', new_plant_path, class:"btn btn-outline-success" %>
+  </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @plants.each do |plant| %>
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= plant.name %></td>
-        <td><%= link_to 'Voir', plant %></td>
-        <td><%= link_to 'Éditer', edit_plant_path(plant) %></td>
-        <% if current_user.admin? %>
-          <td><%= link_to 'Supprimer', plant, method: :delete, data: { confirm: 'Êtes-vous sûr ?' } %></td>
-        <% end %>
+        <th scope="col">Name</th>
+        <th scope="col" colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @plants.each do |plant| %>
+        <tr>
+          <td><%= plant.name %></td>
+          <td><%= link_to 'Voir', plant %></td>
+          <td><%= link_to 'Éditer', edit_plant_path(plant) %></td>
+          <% if current_user.admin? %>
+            <td><%= link_to 'Supprimer', plant, method: :delete, data: { confirm: 'Êtes-vous sûr ?' } %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-
-
+  <br>
+</div>
