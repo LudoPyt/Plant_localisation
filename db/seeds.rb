@@ -8,6 +8,7 @@
 
 user = User.find_or_initialize_by(email: 'admin@admin.com')
 user.password = 'administrateur'
+user.password_confirmation = 'administrateur'
 user.admin = true
 user.approved = true
 user.save!
