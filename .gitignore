@@ -27,3 +27,5 @@
 /config/master.key
 
 /.Gemfile.lock
+.DS_Store
+.vscode
