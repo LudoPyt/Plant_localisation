@@ -13,11 +13,32 @@
 class Position < ApplicationRecord
   belongs_to :plant
 
+  NORTH = 48.160593
+  EAST = 2.226911
+  SOUTH = 48.159816
+  WEST = 2.225516
+
+  # 0.0 -> 100.0
+  def to_percent_x
+    offset = EAST - longitude
+    total = EAST - WEST
+    return 0 if offset.zero?
+    offset / total * 100.0
+  end
+
+  # 0.0 -> 100.0
+  def to_percent_y
+    offset = SOUTH - latitude
+    total = SOUTH - NORTH
+    return 0 if offset.zero?
+    offset / total * 100.0
+  end
+
   def self.to_csv(options = {})
-  CSV.generate(options) do |csv|
-    csv << column_names
-    all.each do |position|
-      csv << position.attributes.values_at(*column_names)
+    CSV.generate(options) do |csv|
+      csv << column_names
+      all.each do |position|
+        csv << position.attributes.values_at(*column_names)
       end
     end
   end

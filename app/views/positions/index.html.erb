@@ -2,6 +2,12 @@
 
 <h1>Positions</h1>
 
+<div class="map">
+  <% @positions.each do |position| %>
+    <div class="map__position" style="left: <%= position.to_percent_x %>%; top: <%= position.to_percent_y %>%;"></div>
+  <% end %>
+</div>
+
 <table>
   <thead>
     <tr>

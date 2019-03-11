@@ -9,21 +9,21 @@
   <div class="text-center">
 
       <h3>En attente :</h3>
-        <% @users.each do |user| %>
-          <% if user.approved == false %>
-              <div><%= user.email %><%= link_to 'Approuver', approve_user_path(user.id) %></div>
-          <% end %>
-        <% end %>
-        <% if User.where(approved: false).count == 0 %>
-          <div>Aucun utilisateur est en attente d'approbation</div>
-        <% end %>
-
-    <h3>Approuvés :</h3>
       <% @users.each do |user| %>
-        <% if user.approved == true %>
-            <div><%= user.email %></div>
+        <% if user.approved == false %>
+            <div><%= user.email %><%= link_to 'Approuver', approve_user_path(user.id) %></div>
         <% end %>
       <% end %>
+      <% if User.where(approved: false).count == 0 %>
+        <div>Aucun utilisateur est en attente d'approbation</div>
+      <% end %>
+
+    <h3>Approuvés :</h3>
+    <% @users.each do |user| %>
+      <% if user.approved == true %>
+          <div><%= user.email %></div>
+      <% end %>
+    <% end %>
   </div>
 
 </div>
