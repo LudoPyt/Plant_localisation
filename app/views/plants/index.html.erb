@@ -40,14 +40,10 @@
           <td><%= link_to 'Voir', plant %></td>
           <% if user_signed_in? %>
           <td><%= link_to 'Éditer', edit_plant_path(plant) %></td>
-<<<<<<< Updated upstream
             <% if current_user.admin? %>
               <td><%= link_to 'Supprimer', plant, method: :delete, data: { confirm: 'Êtes-vous sûr ?' } %></td>
             <% end %>
           <% end %>
-=======
-          <td><%= link_to 'Supprimer', plant, method: :delete, data: { confirm: 'Êtes-vous sûr ?' } %></td>
->>>>>>> Stashed changes
         </tr>
       <% end %>
     </tbody>
