@@ -7,8 +7,22 @@
 <div class="container">
   <h1>Plantes</h1>
 
+  <% if user_signed_in? %>
   <div class="text-center">
     <%= link_to 'Créer une nouvelle plante', new_plant_path, class:"btn btn-outline-success" %>
+  </div>
+  <% end %>
+
+  <div class="row">
+    <% @plants.each do |plant| %>
+      <div class="col-sm-3 col-12 p-1">
+        <div class="card">
+          <%= image_tag("/assets/waiting.jpg",  alt: "", class: "indexImage") %>
+          <h4><%= plant.name %></h4>
+          <%= link_to 'Voir plus', plant %>
+        </div>
+      </div>
+    <% end %>
   </div>
 
   <table class="table">
@@ -24,9 +38,11 @@
         <tr>
           <td><%= plant.name %></td>
           <td><%= link_to 'Voir', plant %></td>
+          <% if user_signed_in? %>
           <td><%= link_to 'Éditer', edit_plant_path(plant) %></td>
-          <% if current_user.admin? %>
-            <td><%= link_to 'Supprimer', plant, method: :delete, data: { confirm: 'Êtes-vous sûr ?' } %></td>
+            <% if current_user.admin? %>
+              <td><%= link_to 'Supprimer', plant, method: :delete, data: { confirm: 'Êtes-vous sûr ?' } %></td>
+            <% end %>
           <% end %>
         </tr>
       <% end %>
@@ -35,4 +51,3 @@
 
   <br>
 </div>
-<%= link_to 'Créer une nouvelle plante', new_plant_path %>

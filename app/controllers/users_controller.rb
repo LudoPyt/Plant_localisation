@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
     def approve 
         unless current_user.admin?
-            redirect_to root_path 
+            redirect_to root_path, notice: 'Vous devez être approuvé par un administrateur'
         end
 
         @user = User.find(params[:id])
