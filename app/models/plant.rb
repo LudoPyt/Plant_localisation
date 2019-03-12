@@ -29,4 +29,5 @@
 
 class Plant < ApplicationRecord
     has_many :positions
+    has_one_attached :picture
 end

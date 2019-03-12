@@ -10,6 +10,12 @@
 
   <%= link_to 'Editer', edit_plant_path(@plant), class: "btn btn-secondary" %>
 
+  <% if @plant.picture.attached? %>
+    <div class="container_img">
+      <%= image_tag(@plant.picture, class: 'img-fluid') %>
+    </div>
+  <% end %>
+
   <table class="table">
     <tbody>
       <tr>
