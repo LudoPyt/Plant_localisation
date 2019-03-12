@@ -15,7 +15,11 @@
     <% @plants.each do |plant| %>
       <div class="col-sm-3 col-12 p-1">
         <div class="card">
-           <%= image_tag(plant.pictures.first, alt: "", class: 'img-fluid indexImage') %>
+          <% if plant.pictures.exists? %>
+            <%= image_tag(plant.pictures.first, alt: "", class: 'img-fluid indexImage') %>
+          <% else %>
+            <%= image_tag('template.jpg', class: 'template-img') %>
+          <% end %>
           <h4><%= plant.name %></h4>
           <%= link_to 'Voir plus', plant %>
         </div>
