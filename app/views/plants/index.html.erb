@@ -2,8 +2,6 @@
   <%= link_to 'Retour', root_path, class: "navbar-brand" %>
 </nav>
 
-<p id="notice"><%= notice %></p>
-
 <div class="container">
   <h1>Plantes</h1>
 
@@ -17,7 +15,7 @@
     <% @plants.each do |plant| %>
       <div class="col-sm-3 col-12 p-1">
         <div class="card">
-          <%= image_tag("/assets/waiting.jpg",  alt: "", class: "indexImage") %>
+           <%= image_tag(plant.pictures.first, alt: "", class: 'img-fluid indexImage') %>
           <h4><%= plant.name %></h4>
           <%= link_to 'Voir plus', plant %>
         </div>
@@ -38,8 +36,10 @@
         <tr>
           <td><%= plant.name %></td>
           <td><%= link_to 'Voir', plant %></td>
-          <% if user_signed_in? %>
-          <td><%= link_to 'Éditer', edit_plant_path(plant) %></td>
+          <% if user_signed_in?  %>
+            <% if current_user.approved? %>
+              <td><%= link_to 'Éditer', edit_plant_path(plant) %></td>
+            <% end %>
             <% if current_user.admin? %>
               <td><%= link_to 'Supprimer', plant, method: :delete, data: { confirm: 'Êtes-vous sûr ?' } %></td>
             <% end %>

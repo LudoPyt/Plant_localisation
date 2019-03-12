@@ -1,6 +1,6 @@
 <%= simple_form_for @plant, html: { multipart: true } do |f| %>
   <%= f.input :name, label: 'Nom de la plante' %>
-  <%= f.input :picture, label: 'Photo de la plante'%>
+  <%= f.input :pictures, as: :file, input_html: { multiple: true } %>
   <%= f.input :champ1, label: 'Champ 1' %>
   <%= f.input :champ2, label: 'Champ 2' %>
   <%= f.input :champ3, label: 'Champ 3' %>

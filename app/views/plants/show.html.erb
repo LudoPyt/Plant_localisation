@@ -10,9 +10,11 @@
 
   <%= link_to 'Editer', edit_plant_path(@plant), class: "btn btn-secondary" %>
 
-  <% if @plant.picture.attached? %>
+  <% if @plant.pictures.attached? %>
     <div class="container_img">
-      <%= image_tag(@plant.picture, class: 'img-fluid') %>
+      <% @plant.pictures.each do |pict|%>
+        <%= image_tag(pict, class: 'img-fluid') %>
+      <% end %>
     </div>
   <% end %>
 
