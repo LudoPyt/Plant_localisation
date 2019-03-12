@@ -1,0 +1,33 @@
+.navbar-custom {
+    text-transform: uppercase;
+    padding: 40px 20px;
+
+    .links {
+        text-align: center;
+        align-content: center;
+
+        .border-custom {
+            border-right: solid black 1px;
+        }
+    }
+
+    .devise {
+        a {
+            color: black;
+        }
+    }
+
+    .brand {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        img {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            height: auto;
+        }
+    }
+}

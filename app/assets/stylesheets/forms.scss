@@ -1,41 +1,41 @@
-.container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+// .container {
+//   min-height: 100vh;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+// }
 
-input, .btn {
-  height: 50px;
-  display: block;
-  width: 100%;
-  font-size: 20px;
-  margin: 20px auto;
+// input, .btn {
+//   height: 50px;
+//   display: block;
+//   width: 100%;
+//   font-size: 20px;
+//   margin: 20px auto;
 
-  &#user_remember_me {
-    width: auto;
-    height: auto;
-  }
-}
+//   &#user_remember_me {
+//     width: auto;
+//     height: auto;
+//   }
+// }
 
-#btn-loc {
-  &:hover {
-    color: inherit;
-    background-color: inherit;
-  }
-}
+// #btn-loc {
+//   &:hover {
+//     color: inherit;
+//     background-color: inherit;
+//   }
+// }
 
-h1 {
-  font-size: 40px;
-  font-weight: bold;
-  text-align: center;
-}
+// h1 {
+//   font-size: 40px;
+//   font-weight: bold;
+//   text-align: center;
+// }
 
-select {
-  display: block;
-  width: 100%;
-}
+// select {
+//   display: block;
+//   width: 100%;
+// }
 
-.plante {
-  margin: 50px auto;
-}
+// .plante {
+//   margin: 50px auto;
+// }

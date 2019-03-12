@@ -1,0 +1,45 @@
+<div class="navbar-custom">
+      <div class="container-fluid">
+        <div class="row">
+
+          <div class="col-7">
+            <div class="row links">
+              <div class="col-3">
+                <div class="brand">
+                  <%= image_tag("logo.png")%>
+                </div>
+              </div>
+              <div class="col-3 p-0">
+                <div class="border-custom">
+                  <%= link_to 'La carte', positions_path %>
+                </div>
+              </div>
+              <div class="col-3 p-0">
+                <div class="border-custom">
+                  <%= link_to 'Les roses', plants_path %>
+                </div>
+              </div>
+              <div class="col-3 p-0">
+                <div>
+                  Mon compte
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="col-5 text-right">
+            <div class="devise">
+              <% if user_signed_in? %>
+                <%= link_to 'Déconnexion', destroy_user_session_path, method: :delete %>
+              <% else %>
+                <%= link_to 'Connexion', new_user_session_path %> / 
+                <%= link_to 'Inscription', new_user_registration_path %>
+              <% end %>
+              
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
