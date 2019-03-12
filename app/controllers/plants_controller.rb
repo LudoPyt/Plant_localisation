@@ -28,8 +28,8 @@ class PlantsController < ApplicationController
 
     respond_to do |format|
       if @plant.save
-        # format.html { redirect_to @plant, notice: 'Plant was successfully created.' }
-        format.html {redirect_to new_position_path}
+        format.html { redirect_to @plant, notice: 'Plant was successfully created.' }
+        # format.html {redirect_to new_position_path}
         #format.json { render :show, status: :created, location: @plant }
       else
         format.html { render :new }
@@ -70,6 +70,6 @@ class PlantsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def plant_params
-      params.require(:plant).permit(:name)
+      params.require(:plant).permit(:name, :picture)
     end
 end

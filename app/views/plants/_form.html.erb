@@ -1,29 +1,15 @@
-<%= form_with(model: plant, local: true) do |form| %>
-  <% if plant.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(plant.errors.count, "error") %> prohibited this plant from being saved:</h2>
-
-      <ul>
-      <% plant.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <%= simple_form_for @plant do |f| %>
-    <%= f.input :name, label: 'Nom de la plante' %>
-    <%= f.input :champ1, label: 'Champ 1' %>
-    <%= f.input :champ2, label: 'Champ 2' %>
-    <%= f.input :champ3, label: 'Champ 3' %>
-    <%= f.input :champ4, label: 'Champ 4' %>
-    <%= f.input :champ5, label: 'Champ 5' %>
-    <%= f.input :champ6, label: 'Champ 6' %>
-    <%= f.input :champ7, label: 'Champ 7' %>
-    <%= f.input :champ8, label: 'Champ 8' %>
-    <%= f.input :champ9, label: 'Champ 9' %>
-    <%= f.input :champ10, label: 'Champ 10' %>
-    <%= f.button :submit, class: "btn btn-success" %>
-  <% end %>
-
+<%= simple_form_for @plant, html: { multipart: true } do |f| %>
+  <%= f.input :name, label: 'Nom de la plante' %>
+  <%= f.input :picture, label: 'Photo de la plante'%>
+  <%= f.input :champ1, label: 'Champ 1' %>
+  <%= f.input :champ2, label: 'Champ 2' %>
+  <%= f.input :champ3, label: 'Champ 3' %>
+  <%= f.input :champ4, label: 'Champ 4' %>
+  <%= f.input :champ5, label: 'Champ 5' %>
+  <%= f.input :champ6, label: 'Champ 6' %>
+  <%= f.input :champ7, label: 'Champ 7' %>
+  <%= f.input :champ8, label: 'Champ 8' %>
+  <%= f.input :champ9, label: 'Champ 9' %>
+  <%= f.input :champ10, label: 'Champ 10' %>
+  <%= f.button :submit, class: "btn btn-success" %>
 <% end %>
