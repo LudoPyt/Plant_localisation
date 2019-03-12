@@ -13,10 +13,10 @@
 class Position < ApplicationRecord
   belongs_to :plant
 
-  NORTH = 48.160593
-  EAST = 2.226911
-  SOUTH = 48.159816
-  WEST = 2.225516
+  NORTH = 48.160691
+  EAST = 2.227912
+  SOUTH = 48.159382
+  WEST = 2.224657
 
   # 0.0 -> 100.0
   def to_percent_x
