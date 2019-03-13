@@ -6,7 +6,7 @@
 <% if Position.exists? %>
   <div class="map" id="map">
     <%= image_tag("map.svg") %>
-    <div class="map__position" style="right: <%= position.to_percent_x %>%; top: <%= position.to_percent_y %>%;"></div>
+    <div class="map__position" style="left: <%= position.to_percent_x %>%; top: <%= position.to_percent_y %>%;"></div>
   </div>
 <% end %>
 
@@ -102,16 +102,16 @@
     var NORTH = 48.160324;
     var EAST = 2.225492;
     var SOUTH = 48.159681;
-    var WEST = 2.26475;
+    var WEST = 2.226475;
 
-    var longTotal = EAST - WEST;
+    var longTotal = WEST - EAST;
     var latTotal = NORTH - SOUTH;
 
     var longOffset = (longPercent * longTotal)/ 100;
     var latOffset = (latPercent * latTotal)/ 100;
 
     //convert to long/lat
-    long.value = longOffset + WEST;
+    long.value = WEST - longOffset;
     lat.value = NORTH - latOffset ;
   }
 }

@@ -36,6 +36,9 @@
           <div class="col-5 text-right">
             <div class="devise">
               <% if user_signed_in? %>
+                <% if current_user.admin? %>
+                  <%= link_to 'Gérer les utilisateurs', users_path %> /
+                <% end %>
                 <%= link_to 'Déconnexion', destroy_user_session_path, method: :delete %>
               <% else %>
                 <%= link_to 'Connexion', new_user_session_path %> /

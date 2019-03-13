@@ -4,14 +4,12 @@
 
   <h1><%= @plant.name %></h1>
 
-  <% if @plant.positions.exists? %>
   <div class="map" id="map">
     <%= image_tag("map.svg") %>
-      <% @positions.each do %>
-        <div class="map__position" style="right: <%= @plant.positions.to_percent_x %>%; top: <%= @plant.positions.to_percent_y %>%;"></div>
+      <% @positions.each do |position| %>
+        <div class="map__position" style="left: <%= position.to_percent_x %>%; top: <%= position.to_percent_y %>%;"></div>
       <% end %>
   </div>
-  <% end %>
 
   <%= link_to 'Editer', edit_plant_path(@plant), class: "btn btn-secondary" %>
 

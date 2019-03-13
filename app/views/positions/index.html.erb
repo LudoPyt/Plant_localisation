@@ -9,7 +9,7 @@
           <div id="map" class="map">
             <%= image_tag("map.svg") %>
             <% @positions.each do |position| %>
-                <div class="map__position" style="right: <%= position.to_percent_x %>%; top: <%= position.to_percent_y %>%;"><%= link_to "", position.plant %></div>
+                <div class="map__position" style="left: <%= position.to_percent_x %>%; top: <%= position.to_percent_y %>%;"><%= link_to "", position.plant %></div>
             <% end %>
           </div>
       </div>

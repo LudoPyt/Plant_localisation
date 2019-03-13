@@ -10,6 +10,9 @@ class PlantsController < ApplicationController
   # GET /plants/1
   # GET /plants/1.json
   def show
+    # @position = Plant.find(params[:id])
+    #@positions = Position.where(plant_id: @plant.id)
+    @positions = @plant.positions
   end
 
   # GET /plants/new

@@ -16,12 +16,12 @@ class Position < ApplicationRecord
   NORTH = 48.160324
   EAST = 2.225492
   SOUTH = 48.159681
-  WEST = 2.26475
+  WEST = 2.226475
 
   # 0.0 -> 100.0
   def to_percent_x
-    offset = EAST - longitude
-    total = EAST - WEST
+    offset = WEST - longitude
+    total = WEST - EAST
     return 0 if offset.zero?
     (offset * 100.0)/ total
   end
