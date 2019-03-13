@@ -1,8 +1,3 @@
-<%= link_to 'Liste de plantes', plants_path %>
-<% if current_user.admin? %>
-  <%= link_to 'Liste des utilisateurs', users_path %>
-<% end %>
-
 <% if Position.exists? %>
   <div class="map" id="map">
     <%= image_tag("map.svg") %>
