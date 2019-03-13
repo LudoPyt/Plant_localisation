@@ -18,9 +18,16 @@ class Position < ApplicationRecord
   SOUTH = 48.159382
   WEST = 2.224657
 
-  # def initialize
-  #   start_longitude = 0 * longitude
-  #   start_atitude = 0 * latitude
+  # def initialize_x
+  #   if longitude == nil
+  #     50
+  #   end
+  # end
+
+  # def initialize_y
+  #   if latitude == nil
+  #     50
+  #   end
   # end
 
   # 0.0 -> 100.0

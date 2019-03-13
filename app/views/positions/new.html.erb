@@ -2,11 +2,110 @@
 
   <h1>Localiser une plante</h1>
   
-  <%= render 'form', position: @position %>
+  <%= link_to 'Liste de plantes', plants_path %>
+    <% if current_user.admin? %>
+      <%= link_to 'Liste des utilisateurs', users_path %>
+    <% end %>
 
-<p>
-    Exporter:
-    <%= link_to "CSV", positions_path(format: "csv") %>
-</p>
+    <% if Position.exists? %>
+      <div class="map" id="map">
+        <%= image_tag("map.svg") %>
+        <div class="map__position" style="left: 50%; top: 50%;"></div>
+      </div>
+    <% end %>
 
+    <div id="alert-localisation"></div>
+    <button class="btn btn-outline-success" id="btn-loc">Localiser position</button>
+
+  <%= simple_form_for @position do |f| %>
+
+    <div class="plante">
+      <div>
+        Quelle plante voulez-vous localiser ?
+      </div>
+      <%= f.collection_select(:plant_id, Plant.all, :id, :name, :prompt => "Choisissez une variété") %>
+    </div>
+
+    <%= f.input :latitude, placeholder: "Latitude", :input_html => {
+      :id => "latitude"
+    } %>
+    <%= f.input :longitude, placeholder: "Longitude", :input_html => {
+      :id => "longitude"
+    } %>
+    <%= f.button :submit, value: "Enregistrer la position", class:"btn btn-success", id: "valider" %>
+  <% end %>
 </div>
+
+<script>
+  $(document).ready(function() {
+    $('#position_plant_id').select2();
+  });
+
+  window.onload = function() {
+  var btn = document.getElementById("btn-loc");
+  var long = document.getElementById("longitude");
+  var lat = document.getElementById("latitude");
+  var alertLoc = document.getElementById("alert-localisation");
+
+  btn.addEventListener("click", getLocation);
+
+
+  function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+      // navigator.geolocation.watchPosition(showPosition, showError);
+    } else {
+      alertLoc.innerHTML = "Geolocation is not supported by this browser.";
+    }
+
+    function showPosition(position) {
+      console.log('position');
+      lat.value = position.coords.latitude;
+      long.value = position.coords.longitude;
+
+      document.getElementById("valider").disabled = false;
+
+    }
+
+    function showError(error) {
+      console.log('error');
+      switch(error.code) {
+        case error.PERMISSION_DENIED:
+          alertLoc.innerHTML = "User denied the request for Geolocation."
+          break;
+        case error.POSITION_UNAVAILABLE:
+          alertLoc.innerHTML = "Location information is unavailable."
+          break;
+        case error.TIMEOUT:
+          alertLoc.innerHTML = "The request to get user location timed out."
+          break;
+        case error.UNKNOWN_ERROR:
+          alertLoc.innerHTML = "An unknown error occurred."
+          break;
+      }
+    }
+  }
+
+  draggable();
+
+  function draggable() {
+    Draggable.create(".map__position", {type:"x,y", edgeResistance:1, bounds:"#map", throwProps:false, onDrag: updateDraggable});
+  }
+  function updateDraggable() {
+      posX = this.x + (this.minX * -1);
+      posY = this.y + (this.minY * -1);
+      mapWidth = $("#map").width();
+      mapHeight = $("#map").height();
+
+      console.log("x " + posX);
+      console.log("y " + posY);
+
+      //convert to %
+      long.value = (posX*100)/mapWidth;
+      lat.value = (posY*100)/mapHeight;
+  }
+}
+
+
+
+</script>
