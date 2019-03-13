@@ -87,17 +87,32 @@
     Draggable.create(".map__position", {type:"x,y", edgeResistance:1, bounds:"#map", throwProps:false, onDrag: updateDraggable});
   }
   function updateDraggable() {
-      posX = this.x + (this.minX * -1);
-      posY = this.y + (this.minY * -1);
-      mapWidth = $("#map").width();
-      mapHeight = $("#map").height();
+    posX = this.x + (this.minX * -1);
+    posY = this.y + (this.minY * -1);
+    mapWidth = $("#map").width();
+    mapHeight = $("#map").height();
 
-      console.log("x " + posX);
-      console.log("y " + posY);
+    console.log("x " + posX);
+    console.log("y " + posY);
 
-      //convert to %
-      long.value = (posX*100)/mapWidth;
-      lat.value = (posY*100)/mapHeight;
+    //convert to %
+    longPercent = (posX*100)/mapWidth;
+    latPercent = (posY*100)/mapHeight;
+
+    var NORTH = 48.160691;
+    var EAST = 2.227912;
+    var SOUTH = 48.159382;
+    var WEST = 2.224657;
+
+    var longTotal = WEST - EAST;
+    var latTotal = SOUTH - NORTH;
+
+    var longOffset = (longPercent * longTotal)/ 100;
+    var latOffset = (latPercent * latTotal)/ 100;
+
+    //convert to long/lat
+    long.value = longOffset + WEST;
+    lat.value = latOffset + NORTH;
   }
 }
 

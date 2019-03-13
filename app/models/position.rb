@@ -18,18 +18,6 @@ class Position < ApplicationRecord
   SOUTH = 48.159382
   WEST = 2.224657
 
-  # def initialize_x
-  #   if longitude == nil
-  #     50
-  #   end
-  # end
-
-  # def initialize_y
-  #   if latitude == nil
-  #     50
-  #   end
-  # end
-
   # 0.0 -> 100.0
   def to_percent_x
     offset = EAST - longitude
