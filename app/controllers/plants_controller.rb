@@ -10,6 +10,7 @@ class PlantsController < ApplicationController
   # GET /plants/1
   # GET /plants/1.json
   def show
+    @position= Position.find(params[:id])
   end
 
   # GET /plants/new
