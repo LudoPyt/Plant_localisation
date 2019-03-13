@@ -20,6 +20,12 @@ class Position < ApplicationRecord
 
   # 0.0 -> 100.0
   def to_percent_x
+    # if (longitude > WEST)
+    #   longitude = WEST
+    # end
+    # if (longitude < EAST)
+    #   longitude = EAST
+    # end
     offset = WEST - longitude
     total = WEST - EAST
     return 0 if offset.zero?
@@ -28,6 +34,12 @@ class Position < ApplicationRecord
 
   # 0.0 -> 100.0
   def to_percent_y
+    # if (latitude > NORTH)
+    #   latitude = NORTH
+    # end
+    # if (latitude < SOUTH)
+    #   latitude = SOUTH
+    # end
     offset = NORTH - latitude
     total = NORTH - SOUTH
     return 0 if offset.zero?
