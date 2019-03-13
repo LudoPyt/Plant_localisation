@@ -1,0 +1,33 @@
+.plants-container {
+  margin: 100px auto;
+
+  .col-custom {
+    margin: 40px auto;
+  }
+  .card {
+    border: solid 1px black;
+    border-radius: 0;
+    min-height: 400px;
+    overflow: hidden;
+    img {
+      width: auto;
+      height: 100%;
+      margin-left: -25%;
+    }
+    .content-box {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      h4 {
+        font-size: 20px;
+      }
+    }
+    #text {
+      display: none;
+    }
+  }
+
+}

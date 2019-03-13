@@ -1,6 +1,15 @@
+.navbar-placeholder {
+  height: 104px;
+}
 .navbar-custom {
+  background-color: white;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
     text-transform: uppercase;
-    padding: 40px 20px;
+    padding: 40px 50px;
+    z-index: 10;
 
     .links {
         text-align: center;

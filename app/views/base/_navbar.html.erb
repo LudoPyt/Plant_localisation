@@ -1,3 +1,6 @@
+<div class="navbar-placeholder">
+  
+</div>
 <div class="navbar-custom">
       <div class="container-fluid">
         <div class="row">
@@ -35,10 +38,10 @@
               <% if user_signed_in? %>
                 <%= link_to 'Déconnexion', destroy_user_session_path, method: :delete %>
               <% else %>
-                <%= link_to 'Connexion', new_user_session_path %> / 
+                <%= link_to 'Connexion', new_user_session_path %> /
                 <%= link_to 'Inscription', new_user_registration_path %>
               <% end %>
-              
+
             </div>
           </div>
 
