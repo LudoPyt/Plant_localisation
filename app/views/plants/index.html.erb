@@ -1,6 +1,3 @@
-<nav class="navbar navbar-light bg-light">
-  <%= link_to 'Retour', root_path, class: "navbar-brand" %>
-</nav>
 
 <div class="container">
   <h1>Plantes</h1>
@@ -18,7 +15,7 @@
           <% if plant.pictures.exists? %>
             <%= image_tag(plant.pictures.first, alt: "", class: 'img-fluid indexImage') %>
           <% else %>
-            <%= image_tag('template.jpg', alt: "", class: 'template-img') %>
+            <%= image_tag('rosefané.jpg', alt: "", class: 'template-img') %>
           <% end %>
           <h4><%= plant.name %></h4>
           <%= link_to 'Voir plus', plant %>
@@ -30,7 +27,7 @@
   <table class="table">
     <thead>
       <tr>
-        <th scope="col">Name</th>
+        <th scope="col">Nom</th>
         <th scope="col" colspan="3"></th>
       </tr>
     </thead>
