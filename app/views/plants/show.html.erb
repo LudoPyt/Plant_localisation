@@ -3,10 +3,11 @@
   <div class="container-custom">
 
   <div class="container">
--
+
     <p id="notice"><%= notice %></p>
 
     <h1><%= @plant.name %></h1>
+
 
     <% if @plant.pictures.attached? %>
     <div class="container-img">
@@ -62,6 +63,7 @@
         <% @positions.each do |position| %>
           <div class="map__position" style="left: <%= position.to_percent_x %>%; top: <%= position.to_percent_y %>%;"></div>
         <% end %>
+
       </div>
     <% end %>
 
