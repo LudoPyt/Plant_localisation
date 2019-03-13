@@ -4,16 +4,29 @@
   .col-custom {
     margin: 40px auto;
   }
-  .card {
+  .card-custom {
+    display: flex;
+    flex-direction: column;
     width: 100%;
     border: solid .8px black;
     border-radius: 0;
     overflow: hidden;
-    img {
-      width: 100%;
-      height: auto;
+    .container-image {
+      position: relative;
+      overflow: hidden;
+      height: 250px;
+      background-color: red;
+      img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 150%;
+        height: auto;
+      }
     }
     .content-box {
+      height: 80px;
       text-align: center;
       display: flex;
       flex-direction: column;
@@ -21,7 +34,7 @@
       justify-content: center;
       padding: 20px;
       h4 {
-        font-size: 20px;
+        font-size: 18px;
       }
     }
     #text {
