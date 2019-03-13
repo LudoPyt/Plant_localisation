@@ -21,6 +21,7 @@
 @import "map";
 @import "home";
 @import "index_plants";
+@import "show_plants";
 
 body {
     a {
@@ -33,6 +34,32 @@ body {
         }
     }
     font-family: 'Raleway', sans-serif;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.container-custom {
+  margin: 100px auto;
+}
+
+
+.btn-container-wiki {
+  position: relative;
+}
+.btn-wiki {
+  position: absolute;
+  right: 0;
+  font-weight: 600;
+  &:before {
+    content: '>';
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 }
 
 #notice {

@@ -1,57 +1,75 @@
-<div class="container-fluid">
+<div id="show_plants">
 
-  <p id="notice"><%= notice %></p>
+  <div class="container-custom">
 
-  <h1><%= @plant.name %></h1>
+  <div class="container">
+-
+    <p id="notice"><%= notice %></p>
 
-  <div class="map" id="map">
-    <%= image_tag("map.svg") %>
-      <% @positions.each do |position| %>
-        <div class="map__position" style="left: <%= position.to_percent_x %>%; top: <%= position.to_percent_y %>%;"></div>
-      <% end %>
-  </div>
+    <h1><%= @plant.name %></h1>
 
-  <%= link_to 'Editer', edit_plant_path(@plant), class: "btn btn-secondary" %>
-
-  <% if @plant.pictures.attached? %>
-    <div class="container_img">
+    <% if @plant.pictures.attached? %>
+    <div class="container-img">
       <% @plant.pictures.each do |pict|%>
         <%= image_tag(pict, class: 'img-fluid') %>
       <% end %>
     </div>
-  <% end %>
+    <% end %>
 
-  <table class="table">
-    <tbody>
-      <tr>
-        <th scope="row">Date de création:</th>
-        <td><%= @plant.creationDate %></td>
-      </tr>
-      <tr>
-        <th scope="row">Créateur:</th>
-        <td><%= @plant.getter %></td>
-      </tr>
-      <tr>
-        <th scope="row">Famille:</th>
-        <td><%= @plant.family %></td>
-      </tr>
-      <tr>
-        <th scope="row">Couleur:</th>
-        <td><%= @plant.color %></td>
-      </tr>
-      <tr>
-        <th scope="row">Type:</th>
-        <td><%= @plant.caracteristics %></td>
-      </tr>
-      <tr>
-        <th scope="row">Description:</th>
-        <td><%= @plant.description %></td>
-      </tr>
-       <tr>
-        <th scope="row">Entretien:</th>
-        <td><%= @plant.maintenance %></td>
-      </tr>
+    <div class="elt-description">
+      <% if @plant.creationDate != nil %>
+        <p>Date de création :&nbsp<%= @plant.creationDate %></p>
+      <% end %>
 
-    </tbody>
-  </table>
+      <% if @plant.getter != nil %>
+        <p>Créateurs :&nbsp<%= @plant.getter %></p>
+      <% end %>
+
+      <% if @plant.family != nil  %>
+        <p>Famille :&nbsp<%= @plant.family %></p>
+      <% end %>
+
+      <% if @plant.color != nil  %>
+        <p>Couleur :&nbsp<%= @plant.color %></p>
+      <% end %>
+
+      <% if @plant.caracteristics != nil  %>
+        <p>Type :&nbsp<%= @plant.caracteristics %></p>
+      <% end %>
+    </div>
+
+    <div class="elt-description">
+      <% if @plant.description != nil %>
+        <!-- <p>Description :</p> -->
+        <p><%= @plant.description %></p>
+      <% end %>
+    </div>
+
+    <div class="elt-description">
+      <% if @plant.maintenance != nil %>
+        <!-- <p>Entretien :</p> -->
+        <p><%= @plant.maintenance %></p>
+      <% end %>
+    </div>
+
+    <div class="btn-container-wiki">
+      <%= link_to "Modifier l'article", edit_plant_path(@plant), class: "btn-wiki" %>
+    </div>
+
+    <% if @plant.positions.exists? %>
+      <div class="map" id="map">
+        <%= image_tag("map.svg") %>
+        <% @positions.each do |position| %>
+          <div class="map__position" style="left: <%= position.to_percent_x %>%; top: <%= position.to_percent_y %>%;"></div>
+        <% end %>
+      </div>
+    <% end %>
+
+  </div>
+
+</div>
+
+
+
+
 </div>

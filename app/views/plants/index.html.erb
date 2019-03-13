@@ -1,4 +1,6 @@
-<div class="plants-container">
+<div id="index_plants">
+
+  <div class="container-custom">
 
   <div class="container-fluid">
     <!-- <h1>Plantes</h1> -->
@@ -14,21 +16,23 @@
         <div class="row">
           <% @plants.each do |plant| %>
             <div class="col-6 col-md-4 col-xl-3 col-custom">
-              <div class="card-custom">
-                <div class="container-image">
-                <%# image %>
-                  <% if plant.pictures.exists? %>
-                    <%= image_tag(plant.pictures.first, alt: "", class: 'img-fluid indexImage') %>
-                  <% else %>
-                    <%= image_tag('rosefané.jpg', alt: "", class: 'template-img') %>
-                  <% end %>
+              <%= link_to plant do %>
+                <div class="card-custom">
+                  <div class="container-image">
+                  <%# image %>
+                    <% if plant.pictures.exists? %>
+                      <%= image_tag(plant.pictures.first, alt: "", class: 'img-fluid indexImage') %>
+                    <% else %>
+                      <%= image_tag('rosefané.jpg', alt: "", class: 'template-img') %>
+                    <% end %>
+                  </div>
+                  <div class="content-box">
+                      <%= link_to plant do %>
+                      <h4><%= plant.name %></h4>
+                      <% end %>
+                  </div>
                 </div>
-                <div class="content-box">
-                    <%= link_to plant do %>
-                    <h4><%= plant.name %></h4>
-                  <% end %>
-                </div>
-              </div>
+              <% end %>
             </div>
           <% end %>
         </div>
@@ -63,5 +67,7 @@
 
     <br>
   </div>
+
+</div>
 
 </div>
