@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_11_195004) do
+ActiveRecord::Schema.define(version: 2019_03_13_105538) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,10 +49,10 @@ ActiveRecord::Schema.define(version: 2019_03_11_195004) do
     t.string "family"
     t.string "existingNumber"
     t.string "newNumber"
-    t.string "champ1"
-    t.string "champ2"
-    t.string "champ3"
-    t.string "champ4"
+    t.text "description"
+    t.string "color"
+    t.text "maintenance"
+    t.string "caracteristics"
     t.string "champ5"
     t.string "champ6"
     t.string "champ7"

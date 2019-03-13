@@ -21,8 +21,32 @@
   <table class="table">
     <tbody>
       <tr>
-        <th scope="row">Champ1:</th>
-        <td><%= @plant.champ1 %></td>
+        <th scope="row">Date de création:</th>
+        <td><%= @plant.creationDate %></td>
+      </tr>
+      <tr>
+        <th scope="row">Créateur:</th>
+        <td><%= @plant.getter %></td>
+      </tr>
+      <tr>
+        <th scope="row">Famille:</th>
+        <td><%= @plant.family %></td>
+      </tr>
+      <tr>
+        <th scope="row">Couleur:</th>
+        <td><%= @plant.color %></td>
+      </tr>
+      <tr>
+        <th scope="row">Caractéristique:</th>
+        <td><%= @plant.caracteristics %></td>
+      </tr>
+      <tr>
+        <th scope="row">Description:</th>
+        <td><%= @plant.description %></td>
+      </tr>
+       <tr>
+        <th scope="row">Entretien:</th>
+        <td><%= @plant.maintenance %></td>
       </tr>
 
     </tbody>
