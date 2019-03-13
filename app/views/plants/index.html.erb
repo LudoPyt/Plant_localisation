@@ -18,7 +18,7 @@
           <% if plant.pictures.exists? %>
             <%= image_tag(plant.pictures.first, alt: "", class: 'img-fluid indexImage') %>
           <% else %>
-            <%= image_tag('template.jpg', class: 'template-img') %>
+            <%= image_tag('template.jpg', alt: "", class: 'template-img') %>
           <% end %>
           <h4><%= plant.name %></h4>
           <%= link_to 'Voir plus', plant %>
