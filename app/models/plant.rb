@@ -31,3 +31,7 @@ class Plant < ApplicationRecord
     has_many :positions
     has_many_attached :pictures
 end
+
+def get_all_positions
+    
+end

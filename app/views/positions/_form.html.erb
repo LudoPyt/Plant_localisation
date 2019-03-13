@@ -6,7 +6,7 @@
 <% if Position.exists? %>
   <div class="map" id="map">
     <%= image_tag("map.svg") %>
-    <div class="map__position" style="left: <%= position.to_percent_x %>%; top: <%= position.to_percent_y %>%;"></div>
+    <div class="map__position" style="right: <%= position.to_percent_x %>%; top: <%= position.to_percent_y %>%;"></div>
   </div>
 <% end %>
 
@@ -92,8 +92,8 @@
     mapWidth = $("#map").width();
     mapHeight = $("#map").height();
 
-    console.log("x " + posX);
-    console.log("y " + posY);
+    // console.log("x " + posX);
+    // console.log("y " + posY);
 
     //convert to %
     longPercent = (posX*100)/mapWidth;
@@ -104,18 +104,15 @@
     var SOUTH = 48.159382;
     var WEST = 2.224657;
 
-    var longTotal = WEST - EAST;
-    var latTotal = SOUTH - NORTH;
+    var longTotal = EAST - WEST;
+    var latTotal = NORTH - SOUTH;
 
     var longOffset = (longPercent * longTotal)/ 100;
     var latOffset = (latPercent * latTotal)/ 100;
 
     //convert to long/lat
     long.value = longOffset + WEST;
-    lat.value = latOffset + NORTH;
+    lat.value = NORTH - latOffset ;
   }
 }
-
-
-
 </script>

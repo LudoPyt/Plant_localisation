@@ -24,11 +24,13 @@
                   <%= link_to 'Les roses', plants_path %>
                 </div>
               </div>
-              <div class="col-3 p-0">
-                <div>
-                  Mon compte
+              <% if user_signed_in? %>
+                <div class="col-3 p-0">
+                  <div>
+                    Mon compte
+                  </div>
                 </div>
-              </div>
+              <% end %>
             </div>
 
           </div>

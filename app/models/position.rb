@@ -23,15 +23,15 @@ class Position < ApplicationRecord
     offset = EAST - longitude
     total = EAST - WEST
     return 0 if offset.zero?
-    offset / total * 100.0
+    (offset * 100.0)/ total
   end
 
   # 0.0 -> 100.0
   def to_percent_y
-    offset = SOUTH - latitude
-    total = SOUTH - NORTH
+    offset = NORTH - latitude
+    total = NORTH - SOUTH
     return 0 if offset.zero?
-    offset / total * 100.0
+    (offset * 100.0)/ total
   end
 
   def self.to_csv(options = {})
