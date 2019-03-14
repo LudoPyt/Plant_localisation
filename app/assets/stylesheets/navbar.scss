@@ -3,40 +3,40 @@
 }
 .navbar-custom {
   background-color: white;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    text-transform: uppercase;
-    padding: 40px 50px;
-    z-index: 10;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  text-transform: uppercase;
+  padding: 40px 50px;
+  z-index: 10;
 
-    .links {
-        text-align: center;
-        align-content: center;
+  .links {
+      text-align: center;
+      align-content: center;
 
-        .border-custom {
-            border-left: solid black 1px;
-        }
-    }
+      .border-custom {
+          border-left: solid black 1px;
+      }
+  }
 
-    .devise {
-        a {
-            color: black;
-        }
-    }
+  .devise {
+      a {
+          color: black;
+      }
+  }
 
-    .brand {
-        position: relative;
-        top: 50%;
-        transform: translateY(-50%);
-        img {
-            position: absolute;
-            left: 50%;
-            top: 0;
-            transform: translate(-50%, -50%);
-            width: 150%;
-            height: auto;
-        }
+  .brand {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      img {
+          position: absolute;
+          left: 50%;
+          top: 0;
+          transform: translate(-50%, -50%);
+          width: 150%;
+          height: auto;
+      }
     }
 }
