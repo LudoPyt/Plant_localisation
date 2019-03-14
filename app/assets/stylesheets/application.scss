@@ -17,13 +17,14 @@
 @import "forms";
 @import "footer";
 @import "positions";
-@import "plants";
+@import "plants/plants";
 @import "navbar";
 @import "wiki.scss";
 @import "map";
-@import "home";
-@import "index_plants";
-@import "show_plants";
+@import "pages/home";
+@import "plants/index_plants";
+@import "plants/show_plants";
+@import "positions/show_positions";
 @import "new-session";
 
 

@@ -1,28 +1,92 @@
-<div class="container">
-  <h1>Position#show</h1>
+<div id="show_positions">
 
-  <div class="container-fluid">
-    <div class="container-map">
-      <div class="row">
-        <div class="col-10">
-            <div id="map" class="map">
-              <%= image_tag("map.svg") %>
-                  <div class="map__position" style="left: <%= @position.to_percent_x %>%; top: <%= @position.to_percent_y %>%;"><%= link_to "", edit_position_path %></div>
-            </div>
-            <div>
-              <p>A cette position se trouve <%= @position.plant.name %></p>
-            </div>
+  <div class="container-custom">
+
+    <div class="container-fluid">
+
+      <div class="container-map">
+
+        <div class="row">
+          <div class="col-9">
+              <div id="map" class="map">
+                <%= image_tag("map.svg") %>
+                    <div class="map__position" style="left: <%= @position.to_percent_x %>%; top: <%= @position.to_percent_y %>%;"><%= link_to "", edit_position_path %></div>
+              </div>
+              <div class="overlay-container">
+                <div class="overlay">
+                  <div class="header-container">
+                    <div class="container-image-radius">
+                      <% @position.plant.pictures.each do |pict|%>
+                        <%= image_tag(pict, class: 'img-fluid') %>
+                      <% end %>
+                    </div>
+                    <h1 class="text-right m-0"><%= @position.plant.name %></h1>
+                    <div class="elt-description text-right">
+                      <% if @position.plant.creationDate != nil %>
+                        <p>Date de création :&nbsp<%= @position.plant.creationDate %></p>
+                      <% end %>
+
+                      <% if @position.plant.getter != nil %>
+                        <p>Créateurs :&nbsp<%= @position.plant.getter %></p>
+                      <% end %>
+
+                      <% if @position.plant.family != nil  %>
+                        <p>Famille :&nbsp<%= @position.plant.family %></p>
+                      <% end %>
+
+                      <% if @position.plant.color != nil  %>
+                        <p>Couleur :&nbsp<%= @position.plant.color %></p>
+                      <% end %>
+
+                      <% if @position.plant.caracteristics != nil  %>
+                        <p>Type :&nbsp<%= @position.plant.caracteristics %></p>
+                      <% end %>
+                    </div>
+                  </div>
+
+                  <% if @position.plant.description != nil %>
+                    <div class="elt-description">
+                      <% if @position.plant.description != nil  %>
+                        <p><%= truncate(@position.plant.description, :length => 180) %></p>
+                      <% end %>
+                    </div>
+                    <div class="btn-more-container">
+                      <div class="btn-more">
+                        <%= link_to 'En savoir plus', @position.plant %>
+                      </div>
+                    </div>
+                  <% end %>
+
+                  <div class="btn-container-wiki">
+                    <%= link_to "Modifier l'article", edit_plant_path(@position.plant), class: "btn-wiki" %>
+                  </div>
+                </div>
+              </div>
+          </div>
+
+
+
         </div>
+
+
+
       </div>
+
     </div>
-  </div>
 
   <% if user_signed_in? %>
     <% if current_user.admin? %>
       <%= link_to "Localiser une nouvelle plante", new_position_path, class: "btn btn-success" %>
       <%= link_to "Supprimer la position", position_path(@position), method: :delete, data: { confirm: 'Êtes-vous sûr de vouloir supprimer cette position ?' }, class: "btn btn-success" %>
-      
+
     <% end %>
     <%= link_to "Editer la position", edit_position_path, class: "btn btn-success" %>
   <% end %>
+</div>
+
+
+
+
+
+
 </div>
