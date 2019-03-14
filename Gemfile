@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.3'
 
+#i18n
+gem 'rails-i18n', '~> 5.1'
 #cloudinary
 gem 'cloudinary', require: false
 gem 'activestorage-cloudinary-service'
