@@ -2,8 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.3'
-#country_select
-gem 'country_select', '~> 4.0'
+
 #cloudinary
 gem 'cloudinary', require: false
 gem 'activestorage-cloudinary-service'
