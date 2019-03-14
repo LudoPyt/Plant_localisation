@@ -13,6 +13,7 @@ class PlantsController < ApplicationController
     # @position = Plant.find(params[:id])
     #@positions = Position.where(plant_id: @plant.id)
     @positions = @plant.positions
+    raise
   end
 
   # GET /plants/new

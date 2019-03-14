@@ -84,7 +84,6 @@ ActiveRecord::Schema.define(version: 2019_03_14_110102) do
     t.string "lastname"
     t.integer "gender"
     t.date "date_of_birth"
-    t.string "country_id"
     t.index ["approved"], name: "index_users_on_approved"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
