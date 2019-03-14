@@ -11,6 +11,10 @@
           <%= image_tag(pict, class: 'img-fluid') %>
         <% end %>
       </div>
+      <% else %>
+        <div class="container-img">
+          <%= image_tag('placeholder-img.jpg') %>
+        </div>
       <% end %>
 
       <div class="elt-description">
@@ -51,7 +55,9 @@
 
       <% if user_signed_in? %>
         <div class="btn-container-wiki">
-          <%= link_to "Modifier l'article", edit_plant_path(@plant), class: "btn-wiki" %>
+          <div class="elt-btn-wiki">
+            <%= link_to "Modifier l'article", edit_plant_path(@plant), class: "btn-wiki" %>
+          </div>
         </div>
       <% end %>
 

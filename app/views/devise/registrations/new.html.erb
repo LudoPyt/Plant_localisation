@@ -1,66 +1,47 @@
 <div class="container">
-
-
   <div class="row sign-up-row">
-    
     <div class="col-7">
-      
       <div class="sign_up">
-
-
         <h2 class="text-center">Inscription</h2>
-
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= f.error_notification %>
-
             <div class="form-inputs">
-            <%= f.input :firstname, label: 'Prénom',
-                         required: true %>
-            <%= f.input :lastname, label: 'Nom',
-                         required: true%>
+              <%= f.input :firstname, label: 'Prénom',
+                          required: true %>
+              <%= f.input :lastname, label: 'Nom',
+                          required: true%>
 
-            <%= f.input :email,
-                        required: true,
-                        autofocus: true,
-                        input_html: { autocomplete: "email" }%>
-           
-            <%= f.input :date_of_birth, label: "Date de naissance",
-                                    as: :date,
-                                    start_year: Date.today.year - 90,
-                                    end_year: Date.today.year - 12, 
-                                    :order => [:day, :month, :year], 
-                                    :prompt => {:day => 'JJ', :month => 'Mois', :year => 'AAAA' }  %>
-
-            <%= f.input :gender, label: "Sexe", as: :radio_buttons, collection: [['0', 'Femme'], ['1', 'Homme']], label_method: :second, value_method: :first %>
-            
-
-            <%= f.input :password,
-                          label: 'Mot de passe',
+              <%= f.input :email,
                           required: true,
-                          hint: ("#{@minimum_password_length} caractères minimum" if @minimum_password_length),
-                          input_html: { autocomplete: "new-password" } %>
-            <%= f.input :password_confirmation,
-                        label: 'Confirmation du Mot de passe',
-                        required: true,
-                        input_html: { autocomplete: "new-password" } %>
+                          autofocus: true,
+                          input_html: { autocomplete: "email" }%>
+            
+              <%= f.input :date_of_birth, label: "Date de naissance",
+                                      as: :date,
+                                      start_year: Date.today.year - 90,
+                                      end_year: Date.today.year - 12, 
+                                      :order => [:day, :month, :year], 
+                                      :prompt => {:day => 'JJ', :month => 'Mois', :year => 'AAAA' }  %>
 
-        
-               
+              <%= f.input :gender, label: "Sexe", as: :radio_buttons, collection: [['0', 'Femme'], ['1', 'Homme']], label_method: :second, value_method: :first %>
+              
+
+              <%= f.input :password,
+                            label: 'Mot de passe',
+                            required: true,
+                            hint: ("#{@minimum_password_length} caractères minimum" if @minimum_password_length),
+                            input_html: { autocomplete: "new-password" } %>
+              <%= f.input :password_confirmation,
+                          label: 'Confirmation du Mot de passe',
+                          required: true,
+                          input_html: { autocomplete: "new-password" } %> 
             </div>
-          
-
-             <div class="form-actions">
+          <div class="form-actions">
             <%= f.button :submit, "S'inscrire", class: "btn btn-success" %>
-             </div>
-             <% end %>
-
           </div>
-
+        <% end %>
+      </div>
     </div>
-
   </div>
-
   <%= render "devise/shared/links" %>
-
-
 </div>

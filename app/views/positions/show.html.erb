@@ -16,8 +16,12 @@
                 <div class="overlay">
                   <div class="header-container">
                     <div class="container-image-radius">
-                      <% @position.plant.pictures.each do |pict|%>
-                        <%= image_tag(pict, class: 'img-fluid') %>
+                      <% if @position.plant.pictures.attached? %>
+                        <%= image_tag('placeholder-img.jpg', class: 'img-fluid') %>
+                      <% else %>
+                        <% @position.plant.pictures.each do |pict|%>
+                          <%= image_tag(pict, class: 'img-fluid') %>
+                        <% end %>
                       <% end %>
                     </div>
                     <h1 class="text-right m-0"><%= @position.plant.name %></h1>
@@ -57,36 +61,23 @@
                     </div>
                   <% end %>
 
-                  <div class="btn-container-wiki">
+                  <div class="btn-container-wiki p-3">
                     <%= link_to "Modifier l'article", edit_plant_path(@position.plant), class: "btn-wiki" %>
                   </div>
                 </div>
               </div>
           </div>
-
-
-
         </div>
-
-
-
       </div>
-
     </div>
-
-  <% if user_signed_in? %>
-    <% if current_user.admin? %>
-      <%= link_to "Localiser une nouvelle plante", new_position_path, class: "classic-button" %>
-      <%= link_to "Supprimer la position", position_path(@position), method: :delete, data: { confirm: 'Êtes-vous sûr de vouloir supprimer cette position ?' }, class: "red-button" %>
-      
-    <% end %>
-    <%= link_to "Editer la position", edit_position_path, class: "white-button" %>
-  <% end %>
-</div>
-
-
-
-
-
-
+    <div class="container-btn">
+      <% if user_signed_in? %>
+        <%= link_to "Editer la position", edit_position_path, class: "white-button" %>
+        <% if current_user.admin? %>
+          <%= link_to "Localiser une nouvelle plante", new_position_path, class: "classic-button" %>
+          <%= link_to "Supprimer la position", position_path(@position), method: :delete, data: { confirm: 'Êtes-vous sûr de vouloir supprimer cette position ?' }, class: "red-button" %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>

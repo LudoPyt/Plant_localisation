@@ -1,6 +1,6 @@
 <%= simple_form_for @plant, html: { multipart: true } do |f| %>
   <%= f.input :name, label: 'Nom de la plante' %>
-  <%= f.input :pictures, as: :file, input_html: { multiple: true } %>
+  <%= f.input :pictures, class: "classic-button", as: :file, input_html: { multiple: true } %>
   <%= f.input :creationDate, label: 'Date de création' %>
   <%= f.input :color, label: 'Couleur' %>
   <%= f.input :getter, label: 'Créateur' %>
@@ -8,5 +8,5 @@
   <%= f.input :caracteristics, label: 'Type' %>
   <%= f.input :description, label: 'Description' %>
   <%= f.input :maintenance, label: 'Entretien' %>
-  <%= f.button :submit, class: "classic-button" %>
+  <%= f.button :submit, label: 'Modifier cette rose', class: "classic-button" %>
 <% end %>

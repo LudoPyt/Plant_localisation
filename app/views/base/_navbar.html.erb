@@ -26,7 +26,7 @@
               <% if user_signed_in? %>
                 <div class="col-3 p-0">
                   <div class="border-custom">
-                    Mon compte
+                    <%= link_to 'Mon compte', edit_user_registration_path %>
                   </div>
                 </div>
               <% end %>

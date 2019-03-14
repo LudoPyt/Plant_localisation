@@ -3,6 +3,15 @@ class UsersController < ApplicationController
         @users = User.all
     end
 
+    def show
+        
+    end
+
+    # GET /users/1/edit
+    def edit
+        
+    end
+
     def approve 
         unless current_user.admin?
             redirect_to root_path, notice: 'Vous devez être approuvé par un administrateur'

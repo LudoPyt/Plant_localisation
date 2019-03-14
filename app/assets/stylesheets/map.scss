@@ -1,11 +1,7 @@
 .container-map {
   margin: 50px auto;
-
-  #map {
-    border: solid 2px black;
+  .row {
+      align-items: center;
+      justify-content: center;
   }
-    .row {
-        align-items: center;
-        justify-content: center;
-    }
 }
