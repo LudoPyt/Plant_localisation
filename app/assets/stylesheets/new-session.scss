@@ -1,0 +1,27 @@
+
+.container{
+	min-height: 100vh;
+	.parent{
+		display: inline-block;
+		.bg-pink {
+			display: block;
+			margin: auto;
+			background-color: #F5D9EA;
+			margin: auto;
+		}
+	}
+	.new-session {
+		position:relative;
+		width: 800px;
+		padding: 24px;
+	  	margin: 150px;
+		border-style: solid;
+		a{
+			position: absolute;
+		    bottom: 0;
+		    right: 0;
+		    padding: 20px;
+		}
+	}
+	
+}
