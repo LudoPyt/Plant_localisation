@@ -1,20 +1,28 @@
 <div class="container">
   <h1>Position#show</h1>
 
-<div class="container-fluid">
-  <div class="container-map">
-    <div class="row">
-      <div class="col-10">
-          <div id="map" class="map">
-            <%= image_tag("map.svg") %>
-                <div class="map__position" style="left: <%= @position.to_percent_x %>%; top: <%= @position.to_percent_y %>%;"><%= link_to "", edit_position_path %></div>
-          </div>
+  <div class="container-fluid">
+    <div class="container-map">
+      <div class="row">
+        <div class="col-10">
+            <div id="map" class="map">
+              <%= image_tag("map.svg") %>
+                  <div class="map__position" style="left: <%= @position.to_percent_x %>%; top: <%= @position.to_percent_y %>%;"><%= link_to "", edit_position_path %></div>
+            </div>
+            <div>
+              <p>A cette position se trouve <%= @position.plant.name %></p>
+            </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-  <%= link_to "Localiser une nouvelle plante", new_position_path, class: "btn btn-success" %>
-  <%= link_to "Editer la position", edit_position_path, class: "btn btn-success" %>
-
+  <% if user_signed_in? %>
+    <% if current_user.admin? %>
+      <%= link_to "Localiser une nouvelle plante", new_position_path, class: "btn btn-success" %>
+      <%= link_to "Supprimer la position", position_path(@position), method: :delete, data: { confirm: 'Êtes-vous sûr de vouloir supprimer cette position ?' }, class: "btn btn-success" %>
+      
+    <% end %>
+    <%= link_to "Editer la position", edit_position_path, class: "btn btn-success" %>
+  <% end %>
 </div>

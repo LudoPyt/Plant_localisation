@@ -53,9 +53,11 @@
       <% end %>
     </div>
 
-    <div class="btn-container-wiki">
-      <%= link_to "Modifier l'article", edit_plant_path(@plant), class: "btn-wiki" %>
-    </div>
+    <% if user_signed_in? %>
+      <div class="btn-container-wiki">
+        <%= link_to "Modifier l'article", edit_plant_path(@plant), class: "btn-wiki" %>
+      </div>
+    <% end %>
 
     <% if @plant.positions.exists? %>
       <div class="map" id="map">
