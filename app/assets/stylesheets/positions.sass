@@ -9,11 +9,11 @@
         height: auto
 
     &__position
-        background: red
-        width: 1.5px
-        height: 1.5px
+        background: transparent
+        width: 1px
+        height: 1px
         //margin: -5px 0 0 -5px
-        border-radius: 100%
+        //border-radius: 100%
         position: absolute
 
         &:before
@@ -22,10 +22,11 @@
             height: 15px
             background-color: black
             border-radius: 50% 50% 50% 0
-            transform: translate(-50%, -25%) rotate(-45deg)
+            transform-origin: bottom left
+            transform: rotate(-45deg)
             position: absolute
-            bottom: 0
-            left: 50%
+            bottom: 100%
+            left: 0%
             color: black
         a
             display: block
