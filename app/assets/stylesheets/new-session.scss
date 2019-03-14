@@ -1,8 +1,11 @@
 
-.new-session-container{
+.new-session-container {
 	min-height: 75vh;
-	.parent{
+
+	.parent {
+
 		display: inline-block;
+		
 		.bg-grey {
 			display: block;
 			background-color: #ECECEC;
@@ -13,12 +16,16 @@
 			
 		}
 		.inscription {
-			display: block;
-			background-color: #FFFFFF;
-			border: 1px solid #A1A1A1;
-			margin: auto;
-			color: black;
-			width:20%;
+			
+		    display: block;
+		    background-color: white;
+		    border: 1px solid #A1A1A1;
+		    color: black;
+		    width: 20%;
+		    line-height: 35px;
+		    text-align: center;
+		    border-radius: 3px;
+
 		}
 		.new-session {
 			position:relative;
@@ -26,6 +33,7 @@
 			padding: 24px;
 		  	margin: 75px 150px;
 			border: 1px solid;
+			
 			a{
 				position: absolute;
 			    bottom: 0;
@@ -38,7 +46,15 @@
 			input:placeholder-shown{
 				font-style : oblique;
 			}
-		}			
+
+
+		}		
+
+		.form-action {
+			input.btn {
+				padding: none !important;
+			}
+		}
 	}
 
 }
