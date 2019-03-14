@@ -1,80 +1,70 @@
 <div id="show_plants">
-
   <div class="container-custom">
+    <div class="container">
+      <p id="notice"><%= notice %></p>
 
-  <div class="container">
+      <h1><%= @plant.name %></h1>
 
-    <p id="notice"><%= notice %></p>
-
-    <h1><%= @plant.name %></h1>
-
-
-    <% if @plant.pictures.attached? %>
-    <div class="container-img">
-      <% @plant.pictures.each do |pict|%>
-        <%= image_tag(pict, class: 'img-fluid') %>
-      <% end %>
-    </div>
-    <% end %>
-
-    <div class="elt-description">
-      <% if @plant.creationDate != nil %>
-        <p>Date de création :&nbsp<%= @plant.creationDate %></p>
-      <% end %>
-
-      <% if @plant.getter != nil %>
-        <p>Créateurs :&nbsp<%= @plant.getter %></p>
-      <% end %>
-
-      <% if @plant.family != nil  %>
-        <p>Famille :&nbsp<%= @plant.family %></p>
-      <% end %>
-
-      <% if @plant.color != nil  %>
-        <p>Couleur :&nbsp<%= @plant.color %></p>
-      <% end %>
-
-      <% if @plant.caracteristics != nil  %>
-        <p>Type :&nbsp<%= @plant.caracteristics %></p>
-      <% end %>
-    </div>
-
-    <div class="elt-description">
-      <% if @plant.description != nil %>
-        <!-- <p>Description :</p> -->
-        <p><%= @plant.description %></p>
-      <% end %>
-    </div>
-
-    <div class="elt-description">
-      <% if @plant.maintenance != nil %>
-        <!-- <p>Entretien :</p> -->
-        <p><%= @plant.maintenance %></p>
-      <% end %>
-    </div>
-
-    <% if user_signed_in? %>
-      <div class="btn-container-wiki">
-        <%= link_to "Modifier l'article", edit_plant_path(@plant), class: "btn-wiki" %>
-      </div>
-    <% end %>
-
-    <% if @plant.positions.exists? %>
-      <div class="container-map">
-        <div class="map" id="map">
-        <%= image_tag("map.svg") %>
-        <% @positions.each do |position| %>
-          <div class="map__position" style="left: <%= position.to_percent_x %>%; top: <%= position.to_percent_y %>%;"></div>
+      <% if @plant.pictures.attached? %>
+      <div class="container-img">
+        <% @plant.pictures.each do |pict|%>
+          <%= image_tag(pict, class: 'img-fluid') %>
         <% end %>
       </div>
+      <% end %>
+
+      <div class="elt-description">
+        <% if @plant.creationDate != nil %>
+          <p>Date de création :&nbsp<%= @plant.creationDate %></p>
+        <% end %>
+
+        <% if @plant.getter != nil %>
+          <p>Créateurs :&nbsp<%= @plant.getter %></p>
+        <% end %>
+
+        <% if @plant.family != nil  %>
+          <p>Famille :&nbsp<%= @plant.family %></p>
+        <% end %>
+
+        <% if @plant.color != nil  %>
+          <p>Couleur :&nbsp<%= @plant.color %></p>
+        <% end %>
+
+        <% if @plant.caracteristics != nil  %>
+          <p>Type :&nbsp<%= @plant.caracteristics %></p>
+        <% end %>
       </div>
-    <% end %>
 
+      <div class="elt-description">
+        <% if @plant.description != nil %>
+          <!-- <p>Description :</p> -->
+          <p><%= @plant.description %></p>
+        <% end %>
+      </div>
+
+      <div class="elt-description">
+        <% if @plant.maintenance != nil %>
+          <!-- <p>Entretien :</p> -->
+          <p><%= @plant.maintenance %></p>
+        <% end %>
+      </div>
+
+      <% if user_signed_in? %>
+        <div class="btn-container-wiki">
+          <%= link_to "Modifier l'article", edit_plant_path(@plant), class: "btn-wiki" %>
+        </div>
+      <% end %>
+
+      <% if @plant.positions.exists? %>
+        <div class="container-map">
+          <div class="map" id="map">
+          <%= image_tag("map.svg") %>
+          <% @positions.each do |position| %>
+            <div class="map__position" style="left: <%= position.to_percent_x %>%; top: <%= position.to_percent_y %>%;"></div>
+          <% end %>
+        </div>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-</div>
-
-
-
-
 </div>

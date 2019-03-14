@@ -76,11 +76,11 @@
 
   <% if user_signed_in? %>
     <% if current_user.admin? %>
-      <%= link_to "Localiser une nouvelle plante", new_position_path, class: "btn btn-success" %>
-      <%= link_to "Supprimer la position", position_path(@position), method: :delete, data: { confirm: 'Êtes-vous sûr de vouloir supprimer cette position ?' }, class: "btn btn-success" %>
-
+      <%= link_to "Localiser une nouvelle plante", new_position_path, class: "classic-button" %>
+      <%= link_to "Supprimer la position", position_path(@position), method: :delete, data: { confirm: 'Êtes-vous sûr de vouloir supprimer cette position ?' }, class: "red-button" %>
+      
     <% end %>
-    <%= link_to "Editer la position", edit_position_path, class: "btn btn-success" %>
+    <%= link_to "Editer la position", edit_position_path, class: "white-button" %>
   <% end %>
 </div>
 
