@@ -13,6 +13,27 @@
     transform: translateY(-50%);
     border: solid black 2px;
     width: 40%;
+
+    .btn-cross {
+      color: transparent;
+      position: relative;
+      &:before, &:after {
+        content: '';
+        width: 15px;
+        height: 2px;
+        background-color: black;
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+
+      &:before {
+        transform: rotate(45deg);
+      }
+      &:after {
+        transform: rotate(-45deg);
+      }
+    }
   }
 
   .container-image-radius {
@@ -46,7 +67,7 @@
       }
     }
   }
-  
+
   .container-btn{
     display: flex;
     justify-content: center;

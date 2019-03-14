@@ -9,6 +9,9 @@
                   <div class="map__position" style="left: <%= @position.to_percent_x %>%; top: <%= @position.to_percent_y %>%;"><%= link_to "", edit_position_path %></div>
               </div>
               <div class="overlay-container">
+                <div class="btn-cross">
+                  Close
+                </div>
                 <div class="overlay">
                   <div class="header-container">
                     <div class="container-image-radius">
@@ -58,7 +61,9 @@
                   <% end %>
 
                   <div class="btn-container-wiki p-3">
-                    <%= link_to "Modifier l'article", edit_plant_path(@position.plant), class: "btn-wiki" %>
+                    <div class="elt-btn-wiki">
+                      <%= link_to "Modifier l'article", edit_plant_path(@position.plant), class: "btn-wiki" %>
+                    </div>
                   </div>
                 </div>
               </div>
