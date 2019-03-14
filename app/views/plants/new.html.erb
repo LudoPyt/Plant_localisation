@@ -1,8 +1,10 @@
-<div class="container">
-
-  <%= render 'form', plant: @plant %>
-
-  <%= link_to 'Back', plants_path %>
-
-
+<div class="container-custom">
+  <div class="container-fluid">
+    <div class="row row-custom">
+      <div class="col-12 col-lg-7 col-xl-6">
+        <%= render 'form', plant: @plant %>
+        <%= link_to 'Retour', plants_path %>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,7 +1,12 @@
-<div class="container">
+<div class="container-custom">
+  <div class="container-fluid">
+    <div class="row row-custom">
+      <div class="col-12 col-lg-7 col-xl-6">
+        <%= render 'form', plant: @plant %>
+        <%= link_to 'Voir', @plant, class:"white-button btn" %>
+      </div>
+    </div>
+  </div>
 
-  <%= render 'form', plant: @plant %>
-
-  <%= link_to 'Voir', @plant, class:"white-button" %>
 
 </div>
