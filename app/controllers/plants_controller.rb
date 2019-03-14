@@ -31,7 +31,7 @@ class PlantsController < ApplicationController
 
     respond_to do |format|
       if @plant.save
-        format.html { redirect_to @plant, notice: 'Plant was successfully created.' }
+        format.html { redirect_to @plant, notice: 'La plante a bien été créée.' }
         # format.html {redirect_to new_position_path}
         #format.json { render :show, status: :created, location: @plant }
       else
@@ -46,7 +46,7 @@ class PlantsController < ApplicationController
   def update
     respond_to do |format|
       if @plant.update(plant_params)
-        format.html { redirect_to @plant, notice: 'Plant was successfully updated.' }
+        format.html { redirect_to @plant, notice: 'La plante a bien été modifiée.' }
         format.json { render :show, status: :ok, location: @plant }
       else
         format.html { render :edit }
@@ -60,7 +60,7 @@ class PlantsController < ApplicationController
   def destroy
     @plant.destroy
     respond_to do |format|
-      format.html { redirect_to plants_url, notice: 'Plant was successfully destroyed.' }
+      format.html { redirect_to plants_url, notice: 'La plante a bien été supprimée.' }
       format.json { head :no_content }
     end
   end
