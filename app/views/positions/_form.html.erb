@@ -1,31 +1,35 @@
-<div class="container-custom">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-9">
-        <% if Position.exists? %>
-          <div class="map" id="map">
-            <%= image_tag("map.svg") %>
-            <div class="map__position" style="left: <%= position.to_percent_x %>%; top: <%= position.to_percent_y %>%;"></div>
+<div id="show_positions">
+  <div class="container-custom">
+    <div class="container-fluid">
+      <div class="container-map">
+        <div class="row">
+          <div class="col-9">
+            <% if Position.exists? %>
+              <div class="map" id="map">
+                <%= image_tag("map.svg") %>
+                <div class="map__position" style="left: <%= position.to_percent_x %>%; top: <%= position.to_percent_y %>%;"></div>
+              </div>
+            <% end %>
+            
+            <%= simple_form_for @position do |f| %>
+
+              <div class="plante">
+                <div>
+                  Quelle plante voulez-vous localiser ?
+                </div>
+                <%= f.collection_select(:plant_id, Plant.all, :id, :name, :prompt => "Choisissez une variété") %>
+              </div>
+
+              <%= f.input :latitude, placeholder: "Latitude", :input_html => {
+                :id => "latitude"
+              } %>
+              <%= f.input :longitude, placeholder: "Longitude", :input_html => {
+                :id => "longitude"
+              } %>
+              <%= f.button :submit, value: "Enregistrer la position", class: "classic-button", id: "valider" %>
+            <% end %>
           </div>
-        <% end %>
-
-        <%= simple_form_for @position do |f| %>
-
-          <div class="plante">
-            <div>
-              Quelle plante voulez-vous localiser ?
-            </div>
-            <%= f.collection_select(:plant_id, Plant.all, :id, :name, :prompt => "Choisissez une variété") %>
-          </div>
-
-            <%= f.input :latitude, placeholder: "Latitude", :input_html => {
-              :id => "latitude"
-            } %>
-            <%= f.input :longitude, placeholder: "Longitude", :input_html => {
-              :id => "longitude"
-            } %>
-          <%= f.button :submit, value: "Enregistrer la position", class: "classic-button", id: "valider" %>
-        <% end %>
+        </div>
       </div>
     </div>
   </div>
@@ -73,5 +77,5 @@
     long.value = WEST - longOffset;
     lat.value = NORTH - latOffset ;
   }
-}
-</script>
+  }
+  </script>
