@@ -16,12 +16,11 @@
       height: 250px;
       img, img.indexImage {
         position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        max-width: 200%;
-        max-height: 200%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 180%;
+        max-height: 180%;
       }
     }
     .content-box {
