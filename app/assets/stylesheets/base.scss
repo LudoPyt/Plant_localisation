@@ -1,0 +1,23 @@
+body {
+  a {
+      color: black;
+      text-decoration: none;
+      &:hover {
+          color: black;
+          text-decoration: none;
+      }
+  }
+  font-family: 'Raleway', sans-serif;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 600;
+}
+.container-custom {
+  min-height: 50vh;
+  margin: 100px auto;
+}
+#notice {
+    display: none;
+}

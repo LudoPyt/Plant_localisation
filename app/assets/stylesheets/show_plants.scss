@@ -11,6 +11,18 @@
   .container-img {
     float: right;
     margin-left: 60px;
+    margin-bottom: 30px;
+    max-width: 450px;
+    max-height: 500px;
+    overflow: hidden;
+
+    img {
+      margin: 50% 0 0 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: auto;
+    }
+
   }
 
 }

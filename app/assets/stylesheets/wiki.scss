@@ -1,0 +1,15 @@
+.btn-container-wiki {
+  position: relative;
+}
+.btn-wiki {
+  position: absolute;
+  right: 0;
+  font-weight: 600;
+  &:before {
+    content: '>';
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}

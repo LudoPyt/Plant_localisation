@@ -60,12 +60,13 @@
     <% end %>
 
     <% if @plant.positions.exists? %>
-      <div class="map" id="map">
+      <div class="container-map">
+        <div class="map" id="map">
         <%= image_tag("map.svg") %>
         <% @positions.each do |position| %>
           <div class="map__position" style="left: <%= position.to_percent_x %>%; top: <%= position.to_percent_y %>%;"></div>
         <% end %>
-
+      </div>
       </div>
     <% end %>
 

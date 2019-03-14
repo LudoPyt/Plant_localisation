@@ -1,73 +1,42 @@
 <div id="index_plants">
 
   <div class="container-custom">
+    <div class="container-fluid">
+      <% if user_signed_in? %>
+      <div class="text-center">
+        <%= link_to 'Créer une nouvelle plante', new_plant_path, class:"btn btn-outline-success" %>
+      </div>
+      <% end %>
 
-  <div class="container-fluid">
-    <!-- <h1>Plantes</h1> -->
-
-    <% if user_signed_in? %>
-    <div class="text-center">
-      <%= link_to 'Créer une nouvelle plante', new_plant_path, class:"btn btn-outline-success" %>
-    </div>
-    <% end %>
-
-    <div class="row">
-      <div class="col-10 m-auto">
-        <div class="row">
-          <% @plants.each do |plant| %>
-            <div class="col-6 col-md-4 col-xl-3 col-custom">
-              <%= link_to plant do %>
-                <div class="card-custom">
-                  <div class="container-image">
-                  <%# image %>
-                    <% if plant.pictures.exists? %>
-                      <%= image_tag(plant.pictures.first, alt: "", class: 'img-fluid indexImage') %>
-                    <% else %>
-                      <%= image_tag('rosefané.jpg', alt: "", class: 'template-img') %>
-                    <% end %>
-                  </div>
-                  <div class="content-box">
-                      <%= link_to plant do %>
-                      <h4><%= plant.name %></h4>
+      <div class="row">
+        <div class="col-10 m-auto">
+          <div class="row">
+            <% @plants.each do |plant| %>
+              <div class="col-6 col-md-4 col-xl-3 col-custom">
+                <%= link_to plant do %>
+                  <div class="card-custom">
+                    <div class="container-image">
+                    <%# image %>
+                      <% if plant.pictures.exists? %>
+                        <%= image_tag(plant.pictures.first, alt: "", class: 'img-fluid indexImage') %>
+                      <% else %>
+                        <%= image_tag('rosefané.jpg', alt: "", class: 'template-img') %>
                       <% end %>
+                    </div>
+                    <div class="content-box">
+                        <%= link_to plant do %>
+                        <h4><%= plant.name %></h4>
+                        <% end %>
+                    </div>
                   </div>
-                </div>
-              <% end %>
-            </div>
-          <% end %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
+
     </div>
-
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Nom</th>
-          <th scope="col" colspan="3"></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @plants.each do |plant| %>
-          <tr>
-            <td><%= plant.name %></td>
-            <td><%= link_to 'Voir', plant %></td>
-            <% if user_signed_in?  %>
-              <% if current_user.approved? %>
-                <td><%= link_to 'Éditer', edit_plant_path(plant) %></td>
-              <% end %>
-              <% if current_user.admin? %>
-                <td><%= link_to 'Supprimer', plant, method: :delete, data: { confirm: 'Êtes-vous sûr ?' } %></td>
-              <% end %>
-            <% end %>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-
-    <br>
   </div>
-
-</div>
 
 </div>
