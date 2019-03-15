@@ -21,12 +21,16 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  def active_for_authentication?
-    super && approved?
-  end
+  # def active_for_authentication?
+  #   super && approved?
+  # end
 
-  def inactive_message
-    approved? ? super : :not_approved
+  # def inactive_message
+  #   approved? ? super : :not_approved
+  # end
+
+  def is_admin
+    @user = User.where(admin: true)
   end
 
 end

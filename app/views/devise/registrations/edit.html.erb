@@ -4,7 +4,7 @@
       <div class="col-12 col-lg-7 col-xl-6">
         <h1>Mon compte</h1>
         <% if current_user.approved != true %>
-          <p class="alert alert-danger">Votre compte n'est pas encore approuvé par l'administrateur, contactez</p>
+          <p class="alert alert-danger">Votre compte n'est pas encore approuvé par l'administrateur.  </p>
         <% end %>
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
           <%= f.error_notification %>
