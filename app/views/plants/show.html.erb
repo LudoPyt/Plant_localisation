@@ -53,7 +53,7 @@
         <% end %>
       </div>
 
-      <% if user_signed_in? %>
+      <% if user_signed_in? && current_user.approved != false %>
         <div class="btn-container-wiki">
           <div class="elt-btn-wiki">
             <%= link_to "Modifier l'article", edit_plant_path(@plant), class: "btn-wiki" %>

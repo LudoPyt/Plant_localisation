@@ -62,11 +62,13 @@
                     </div>
                   <% end %>
 
-                  <div class="btn-container-wiki p-3">
-                    <div class="elt-btn-wiki">
-                      <%= link_to "Modifier l'article", edit_plant_path(@position.plant), class: "btn-wiki" %>
+                  <% if user_signed_in? && current_user.approved != false %>
+                    <div class="btn-container-wiki p-3">
+                      <div class="elt-btn-wiki">
+                        <%= link_to "Modifier l'article", edit_plant_path(@position.plant), class: "btn-wiki" %>
+                      </div>
                     </div>
-                  </div>
+                  <% end %>
                 </div>
               </div>
           </div>
@@ -74,7 +76,7 @@
       </div>
     </div>
     <div class="container-btn">
-      <% if user_signed_in? %>
+      <% if user_signed_in? && current_user.approved != false  %>
         <%= link_to "Editer la position", edit_position_path, class: "white-button" %>
         <% if current_user.admin? %>
           <%= link_to "Localiser une nouvelle plante", new_position_path, class: "classic-button" %>
