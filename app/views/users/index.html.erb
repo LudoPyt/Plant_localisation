@@ -39,12 +39,13 @@
               <tbody>
                 <% @users.each do |user| %>
                   <% if user.approved == true %>
-                    <% if user.firstname == nil || user.lastname == nil %>
-                      <th scope="row"><%= user.email %></th>
-                    <% else %>
-                      <tr>
+                    <tr>
+                      <% if user.firstname == nil || user.lastname == nil %>
+                        <th scope="row"><%= user.email %></th>
+                      <% else %>
+
                         <th><%= user.firstname %>&nbsp<%= user.lastname %></th>
-                      </tr>
+                    </tr>
                     <% end %>
                   <% end %>
                 <% end %>
