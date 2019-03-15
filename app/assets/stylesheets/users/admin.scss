@@ -1,0 +1,30 @@
+#form-admin {
+
+  .form-border {
+    min-height: 300px;
+    border: solid black 1px;
+    padding: 20px;
+
+    h4 {
+      font-size: 20px;
+      margin: 20px 0 40px 0;
+      font-weight: 700;
+    }
+
+    .table {
+      th, tr {
+        padding-left: 0;
+        padding-right: 0;
+        border-bottom: 0;
+        border-bottom: 1px solid #dee2e6;
+      }
+      .white-button {
+        width: auto;
+        padding: none;
+        margin: 0;
+      }
+    }
+  }
+
+
+}

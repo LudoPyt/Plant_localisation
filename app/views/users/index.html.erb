@@ -1,22 +1,49 @@
-<div class="container-fluid">
-  <div class="text-center">
+<div id="form-admin">
 
-      <h3>En attente :</h3>
-      <% @users.each do |user| %>
-        <% if user.approved == false %>
-            <div><%= user.email %><%= link_to 'Approuver', approve_user_path(user.id) %></div>
-        <% end %>
-      <% end %>
-      <% if User.where(approved: false).count == 0 %>
-        <div>Aucun utilisateur est en attente d'approbation</div>
-      <% end %>
+  <div class="container-custom">
+    <div class="container-fluid">
+      <div class="row row-custom">
+        <div class="col-12 col-md-4">
+          <div class="form-border">
+            <h4>Utilisateurs en attente</h4>
+            <table class="table">
+              <tbody>
+                <% @users.each do |user| %>
+                  <% if user.approved == false %>
+                      <tr>
+                        <th scope="row"><%= user.email %></th>
+                        <td class="text-right approve"><%= link_to 'Approuver', approve_user_path(user.id), class:"white-button" %></td>
+                      </tr>
+                  <% end %>
+                <% end %>
+                <% if User.where(approved: false).count == 0 %>
+                  <tr>
+                    <td>Aucun utilisateur est en attente d'approbation</td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="form-border">
+            <h4>Utilisateurs approuvés</h4>
+            <table class="table">
+              <tbody>
+                <% @users.each do |user| %>
+                  <% if user.approved == true %>
+                      <tr>
+                        <td><%= user.email %></td>
+                      </tr>
+                  <% end %>
+                <% end %>
 
-    <h3>Approuvés :</h3>
-    <% @users.each do |user| %>
-      <% if user.approved == true %>
-          <div><%= user.email %></div>
-      <% end %>
-    <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
 </div>
