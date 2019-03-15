@@ -20,9 +20,9 @@
                         <% if @position.plant.pictures.attached? %>
                           <% @position.plant.pictures.each do |pict|%>
                           <%= image_tag(pict, class: 'img-fluid') %>
+                          <% end %>
                         <% else %>
                           <%= image_tag('placeholder-img.jpg', class: 'img-fluid') %>
-                        <% end %>
                       <% end %>
                     </div>
                     <h1 class="text-right m-0"><%= @position.plant.name %></h1>
