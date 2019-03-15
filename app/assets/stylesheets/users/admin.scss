@@ -12,11 +12,12 @@
     }
 
     .table {
-      th, tr {
+      th, td {
+        vertical-align: middle;
+        border-top: 0;
+        border-bottom: 1px solid #dee2e6;
         padding-left: 0;
         padding-right: 0;
-        border-bottom: 0;
-        border-bottom: 1px solid #dee2e6;
       }
       .white-button {
         width: auto;
