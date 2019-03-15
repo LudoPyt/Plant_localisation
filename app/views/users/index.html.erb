@@ -41,7 +41,7 @@
                   <% if user.approved == true %>
                     <tr>
                       <% if user.firstname == nil || user.lastname == nil %>
-                        <th scope="row"><%= truncate(user.email, :length => 150)%></th>
+                        <th scope="row"><%= truncate(user.email, :length => 30)%></th>
                       <% else %>
 
                         <th><%= user.firstname %>&nbsp<%= user.lastname %></th>
