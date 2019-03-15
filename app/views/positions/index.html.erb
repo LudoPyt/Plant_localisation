@@ -19,7 +19,7 @@
   </div>
 </div>
 
-<% if user_signed_in? && current_user.approved? %>
+<% if user_signed_in? && current_user.admin? %>
     <div class="new-btn">
       <%= link_to 'Nouvelle position', new_position_path, class: "white-button" %>
     </div>

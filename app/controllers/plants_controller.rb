@@ -1,5 +1,9 @@
 class PlantsController < ApplicationController
   before_action :set_plant, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
+  before_action :require_admin, only: [:new, :destroy]
+  before_action :require_approved, only: [:edit, :update]
+
 
   # GET /plants
   # GET /plants.json
@@ -75,4 +79,17 @@ class PlantsController < ApplicationController
     def plant_params
       params.require(:plant).permit(:name, :getter,  :description, :maintenance, :color, :creationDate, :caracteristics, :family, pictures: [])
     end
+
+    def require_admin
+      unless current_user.admin?
+        redirect_to user_session_path
+      end
+    end
+
+    def require_approved
+      unless current_user.approved?
+        redirect_to user_session_path
+      end
+    end
+
 end

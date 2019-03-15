@@ -3,9 +3,11 @@
   <div class="container-custom">
     <div class="container-fluid">
       <% if user_signed_in? %>
-      <div class="text-center">
-        <%= link_to 'Créer une nouvelle plante', new_plant_path, class:"white-button" %>
-      </div>
+        <% if current_user.admin? %>
+          <div class="text-center">
+            <%= link_to 'Créer une nouvelle plante', new_plant_path, class:"white-button" %>
+          </div>
+        <% end %>
       <% end %>
 
       <div class="row">

@@ -33,5 +33,5 @@ class Plant < ApplicationRecord
 end
 
 def get_all_positions
-    
+
 end

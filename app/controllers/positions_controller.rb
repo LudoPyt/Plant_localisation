@@ -1,5 +1,9 @@
 class PositionsController < ApplicationController
   before_action :set_position, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
+  before_action :require_admin, only: [:new, :destroy]
+  before_action :require_approved, only: [:edit, :update]
+
 
   # GET /positions
   # GET /positions.json
@@ -77,4 +81,5 @@ class PositionsController < ApplicationController
     def position_params
       params.require(:position).permit(:latitude, :longitude,:plant_id)
     end
+
 end
