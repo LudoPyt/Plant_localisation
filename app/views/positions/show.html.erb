@@ -9,17 +9,19 @@
                   <div class="map__position" style="left: <%= @position.to_percent_x %>%; top: <%= @position.to_percent_y %>%;"><%= link_to "", edit_position_path %></div>
               </div>
               <div class="overlay-container">
-                <div class="btn-cross">
-                  Close
-                </div>
+                <%= link_to root_path do %>
+                  <div class="btn-cross">
+                    Close
+                  </div>
+                <% end %>
                 <div class="overlay">
                   <div class="header-container">
                     <div class="container-image-radius">
-                      <% if @position.plant.pictures.attached? %>
-                        <%= image_tag('placeholder-img.jpg', class: 'img-fluid') %>
-                      <% else %>
-                        <% @position.plant.pictures.each do |pict|%>
+                        <% if @position.plant.pictures.attached? %>
+                          <% @position.plant.pictures.each do |pict|%>
                           <%= image_tag(pict, class: 'img-fluid') %>
+                        <% else %>
+                          <%= image_tag('placeholder-img.jpg', class: 'img-fluid') %>
                         <% end %>
                       <% end %>
                     </div>
